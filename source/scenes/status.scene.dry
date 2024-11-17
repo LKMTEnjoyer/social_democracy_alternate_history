@@ -198,7 +198,7 @@ Support for Socialism: [+ socialism +]%
 
 Support for Nationalism: [+ nationalism +]%
 
-{!<span class="tooltip-text" title="High levels of Pacifism boosts choices that decrease nationalism in Germany. It also gives better options in events that relate to reparations.">Pacifism</span>!}: [+ pacifism : coalition_dissent +]
+{!<span class="tooltip-text" title="High levels of Pacifism boosts choices that decrease nationalism in Germany. It also gives better options in events concerning reparations.">Pacifism</span>!}: [+ pacifism : coalition_dissent +]
 
 {!<span class="tooltip-text" title="High levels of Democratization boosts choices that increase Support for the Republic, such as pro-democracy rallies, and choices that remove reactionaries within the judiciary and police.">Democratization</span>!}: [+ democratization : coalition_dissent +]
 
