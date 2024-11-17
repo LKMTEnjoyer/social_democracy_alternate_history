@@ -198,6 +198,12 @@ Support for Socialism: [+ socialism +]%
 
 Support for Nationalism: [+ nationalism +]%
 
+{!<span class="tooltip-text" title="High levels of Pacifism boosts choices that decrease nationalism in Germany. It also gives better options in events that relate to reparations.">Pacifism</span>!}: [+ pacifism : coalition_dissent +]
+
+{!<span class="tooltip-text" title="High levels of Democratization boosts choices that increase Support for the Republic, such as pro-democracy rallies, and choices that remove reactionaries within the judiciary and police.">Democratization</span>!}: [+ democratization : coalition_dissent +]
+
+{!<span class="tooltip-text" title="Judicial Reform is required for unique options in several cards. It also allows the government to take more decisive action in certain events.">Judicial Reform</span>!}: [+ judicial_reform : judicial_reform +]
+
 = Paramilitary Statistics
 
 [? if strife > 0 : Strife: [+ strife : coalition_dissent +] ?]
@@ -217,10 +223,6 @@ RFB Power: [+ rfb_power +]
 = Party Affairs
 
 Ideology: [? if not ideology : Centrist ?][? if ideology : [+ ideology +]?]
-
-Pacifism: [+ pacifism : coalition_dissent +]
-
-Democratization: [+ democratization : coalition_dissent +]
 
 Radicalism: [+ radicalization : coalition_dissent +]
 
