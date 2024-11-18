@@ -1,11 +1,13 @@
 .hidden {
   display: none;
   width: 300px;
-  border: 1px solid #ccc;
+  border: 2px solid #876;
   padding: 10px;
   margin-top: 10px;
   background-color: #f3f3f3; 
   border-radius: 4px; 
+  font-style: normal;
+  font-weight: normal;
 }
 
 .toggle:hover + .hidden {
