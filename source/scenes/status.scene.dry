@@ -226,7 +226,7 @@ Ideology: [? if not ideology : Centrist ?][? if ideology : [+ ideology +]?]
 
 Radicalism: [+ radicalization : coalition_dissent +]
 
-[? if peoples_party_support > 0 and peoples_party = 0 : Volkspartei Support: [+ peoples_party_support : peoples_party +]?]
+[? if peoples_party_support > 0 and peoples_party = 0 : {!<span class="tooltip-text" title="Volkspartei Support is needed for the SPD to form a people's party. Forming a people's party decreases support from workers, but increases support from other demographics. It also makes campaigning in other demographics more effective and unlocks campaigning with Catholics. Volkspartei support can be gained from campaigning in unorthodox demographics, financing agriculture, and from certain advisor abilities.">Volkspartei Support</span>!}: [+ peoples_party_support : peoples_party +]?]
 
 = [? if black_thursday_seen = 1 : Black Thursday Response ?]
 
