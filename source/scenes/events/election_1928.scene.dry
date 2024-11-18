@@ -1317,8 +1317,35 @@ Julius Leber of the SPD has been appointed Reichswehr Minister.
 title: No more ministries.
 subtitle: [? if leverage >= 10 : We still have some more leverage to gain ministries. ?][? if leverage < 10 : We do not have much leverage left. ?]
 tags: mins_1928
+on-arrival:{!
+Q.ddp_partner = 0;
+Q.dvp_partner = 0;
+Q.z_partner = 0;
+Q.kpd_partner = 0;
+if (Q.in_weimar_coalition == 1) {
+Q.ddp_partner = 1;
+Q.z_partner = 1;
+} 
+if (Q.in_grand_coalition == 1) {
+Q.ddp_partner = 1;
+Q.dvp_partner = 1;
+Q.z_partner = 1;
+} 
+if (Q.in_popular_front == 1) {
+Q.ddp_partner = 1;
+Q.kpd_partner = 1;
+Q.z_partner = 1;
+} 
+if (Q.in_left_front == 1) {
+Q.kpd_partner = 1;
+} 
+Q.kpd_relation += Q.kpd_partner * Q.leverage * 0.5;
+Q.dvp_relation += Q.dvp_partner * Q.leverage * 0.5;
+Q.z_relation += Q.z_partner * Q.leverage * 0.5;
+Q.ddp_relation += Q.ddp_partner * Q.leverage * 0.5;
+!}
 
-This coalition arrangement is tolerable to all.
+This coalition arrangement is tolerable to all. [? if leverage >= 10 and in_spd_majority = 0 and in_emergency_government = 0: Our coalition partners are pleased that we did not take as many ministries as we could have. ?]
 
 @drop_labor
 title: Drop the Labor Ministry.
