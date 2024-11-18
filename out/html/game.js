@@ -17,11 +17,6 @@
   };
 
   var TITLE = "Social Democracy: An Alternate History" + '_' + "Autumn Chen";
-  
-  window.toggle = function toggleEffects(id) {
-    var text = document.getElementById(id);
-    text.style.display = (text.style.display === 'none' ? 'block' : 'none');
-  };
 
   // the url is a link to game.json
   // test url: https://aucchen.github.io/social_democracy_mods/v0.1.json
