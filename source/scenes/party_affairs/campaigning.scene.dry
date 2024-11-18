@@ -21,9 +21,9 @@ Whether or not we are in an electoral campaign, the party is always trying to br
 - @easy_discard
 
 @workers
-subtitle: -1 resources <b><button class="toggle">Effect</button><div class="hidden">Effect</div>
+subtitle: -1 resources <br><button class="toggle">Effects</button><div class="hidden">SPD Worker Support + 6<br>SPD Worker Support - 2 if unemployment is at least 15%<br>SPD Worker Support - 2 if unemployment is at least 25%<br>SPD Worker Support + 6 if the WTB plan is adopted<br>SPD Worker Support + 3 if nationalization has been started<br>Resources - 1</div>
 choose-if: resources >= 1 
-unavailable-subtitle: Not enough resources. <b><button class="toggle">Effect</button><div class="hidden">Effect</div>
+unavailable-subtitle: Not enough resources. <br><button class="toggle">Effect</button><div class="hidden">Effect</div>
 on-arrival: workers_spd += 6*(1-dissent); workers_spd -= 2 if unemployed >= 15; workers_spd -= 2 if unemployed >= 25; workers_spd += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_spd += 3*(1-dissent) if nationalization_progress >= 1;
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
