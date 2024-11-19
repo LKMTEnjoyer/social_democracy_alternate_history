@@ -485,7 +485,7 @@ if (d3 && window) {
 
 = Party support history
 
-[? if historical_mode: Not available in historical mode. ?]
+[? if historical_mode and game_over != 1 : Not available in historical mode. ?]
 
 {!<svg id="party_support_history" style="width: 500px; height: 400px;"> </svg>!}
 
