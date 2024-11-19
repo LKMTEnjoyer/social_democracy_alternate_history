@@ -591,12 +591,12 @@ for (var party of Q.parties) {
 }
 !}
 
+= Social Democracy: An Alternate History
+
 - @start_menu_2: Start game
 - @election_simulation: Election simulation
 - @credits: Credits
 - @game_over.achievements
-
-= Social Democracy: An Alternate History
 
 @start_menu_2
 set-bg: img/map_2.jpg
