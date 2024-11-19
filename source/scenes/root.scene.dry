@@ -590,7 +590,11 @@ for (var party of Q.parties) {
     Q[party+'_votes'] = Math.round(Q[party+'_normalized']*100);
 }
 !}
-go-to: start_menu_2
+
+- @start_menu_2: Start game
+- @election_simulation: Election simulation
+- @credits: Credits
+- @game_over.achievements
 
 = Social Democracy: An Alternate History
 
@@ -791,14 +795,6 @@ Q.dvp_relation = 31;
 Q.budget = 2;
 this.state.disableSaves = true;
 !}
-
-- @start: Start game
-- @election_simulation: Election simulation
-- @credits: Credits
-- @game_over.achievements
-
-
-@start
 go-to: 1928_main
 
 @1928_main
