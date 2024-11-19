@@ -382,9 +382,9 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
 
-[? if game_achievement_klassenkampfunion: **Klassenkampfunion** - Achieve the prerequisites for Klassenkampf, while winning the civil war with full KPD support. ?]
+[? if game_achievement_klassenkampfunion: **Klassenkampfunion** - achieve the prerequisites for Klassenkampf, while winning the civil war with full KPD support. ?]
 
-[? if game_achievement_schutzbund: **Schutzbund** - Convince Zentrum and the DDP to remain in the Reichsbanner, have Zentrum support Braun in the presidential elections, and win the civil war. ?]
+[? if game_achievement_schutzbund: **Schutzbund** - convince Zentrum and the DDP to remain in the Reichsbanner, have Zentrum support Braun in the presidential elections, and win the civil war. ?]
 
 [? if game_achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
 
@@ -483,9 +483,9 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
 
-[? if achievement_klassenkampfunion: **Klassenkampfunion** - Achieve the prerequisites for Klassenkampf, while winning the civil war with full KPD support. ?]
+[? if achievement_klassenkampfunion: **Klassenkampfunion** - achieve the prerequisites for Klassenkampf, while winning the civil war with full KPD support. ?]
 
-[? if achievement_schutzbund: **Schutzbund** - Convince Zentrum and the DDP to remain in the Reichsbanner, have Zentrum support Braun in the presidential elections, and win the civil war. ?]
+[? if achievement_schutzbund: **Schutzbund** - convince Zentrum and the DDP to remain in the Reichsbanner, have Zentrum support Braun in the presidential elections, and win the civil war. ?]
 
 [? if achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
 
@@ -582,9 +582,9 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_klassenkampf: **Klassenkampf** - SPD worker support is at least 80%, while middle-class and rural supports are less than 20%. ?]
 
-[? if not achievement_klassenkampfunion: **Klassenkampfunion** - Achieve the prerequisites for Klassenkampf, while winning the civil war with full KPD support. ?]
+[? if not achievement_klassenkampfunion: **Klassenkampfunion** - achieve the prerequisites for Klassenkampf, while winning the civil war with full KPD support. ?]
 
-[? if not achievement_schutzbund: **Schutzbund** - Convince Zentrum and the DDP to remain in the Reichsbanner, have Zentrum support Braun in the presidential elections, and win the civil war. ?]
+[? if not achievement_schutzbund: **Schutzbund** - convince Zentrum and the DDP to remain in the Reichsbanner, have Zentrum support Braun in the presidential elections, and win the civil war. ?]
 
 [? if not achievement_raterepublik: **Räterepublik** - begin the transformation to a socialist economy. ?]
 
