@@ -5,12 +5,14 @@ tags: party_affairs
 view-if: shuffle_leadership_timer = 0 and difficulty >= 0
 on-arrival: month_activities += 1; shuffle_leadership_timer = 8;
 card-image: img/vorwarts_2.jpg
-go-to: rm_main
+
+Changing the leadership of the party is painful, but perhaps it is necessary to adapt to changing circumstances.
+
+Removing advisors will increase dissent from their faction of the party by 5, while selecting advisors will increase a faction's strength by 5.
 
 - @rm_main: Remove advisors
 - @add_advisors: Add advisors
 - @remove_none: Don't change advisors.
-- @easy_discard
 
 
 ###################### removing leaders
@@ -19,11 +21,6 @@ go-to: rm_main
 title: Remove advisors.
 tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
 frequency: 1
-
-Changing the leadership of the party is painful, but perhaps it is necessary to adapt to changing circumstances.
-
-Removing advisors will increase dissent from their faction of the party, while selecting advisors will increase a faction's strength.
-<br><button class="toggle">Effects</button><div class="hidden">Removing an advisor: Dissent of that faction + 5<br>Appointing an advisor: Strength of that faction + 5</div>
 
 - #remove_advisor
 - @add_advisors: Add advisors
