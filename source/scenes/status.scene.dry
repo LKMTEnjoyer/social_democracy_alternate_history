@@ -191,14 +191,19 @@ Unemployed: SPD: [+ unemployed_spd_normalized +]%, Z: [+ unemployed_z_normalized
 Catholics: SPD: [+ catholics_spd_normalized +]%, Z: [+ catholics_z_normalized +]%, KPD: [+ catholics_kpd_normalized +]%, DDP: [+ catholics_ddp_normalized +]%, DVP: [+ catholics_dvp_normalized +]%; DNVP: [+ catholics_dnvp_normalized +]%, NSDAP: [+ catholics_nsdap_normalized +]%, Others: [+ catholics_other_normalized +]% [? if sapd_formed: SAPD: [+ catholics_sapd_normalized +]% ?]
 
 @statistics
+on-arrival:{!
+Q.pro_republic2 = Math.round(Q.pro_republic);
+Q.nationalism2 = Math.round(Q.nationalism);
+Q.socialism2 = Math.round(Q.socialism);
+!}
 
 = Public Opinion
 
-Support for the Republic: [+ pro_republic +]%
+Support for the Republic: [+ pro_republic2 +]%
 
-Support for Socialism: [+ socialism +]%
+Support for Socialism: [+ socialism2 +]%
 
-Support for Nationalism: [+ nationalism +]%
+Support for Nationalism: [+ nationalism2 +]%
 
 {!<span class="tooltip-text" title="High levels of Pacifism boosts choices that decrease nationalism in Germany. It also gives better options in events concerning reparations.">Pacifism</span>!}: [+ pacifism : coalition_dissent +]
 
@@ -244,7 +249,7 @@ Radicalism: [+ radicalization : coalition_dissent +]
 
 = [? if nazi_urgency > 0 or investigate_far_right > 0 : Antifascist Actions ?]
 
-[? if nazi_urgency > 0 : {!<span class="tooltip-text" title="Nazi Urgency is required to form the Iron Front and to take certain anti-Nazi actions. It is gained from the "Confronting the Nazis" card, choosing the NSDAP as the enemy of the SPD, certain advisor actions, and from the NSDAP growing too strong. It can also be gained from investigating the far-right and from using neorevisionism against the Nazi threat.">Nazi Urgency</span>!}: [+ nazi_urgency : coalition_dissent +] ?]
+[? if nazi_urgency > 0 : {!<span class="tooltip-text" title="Nazi Urgency is required to form the Iron Front and to take certain anti-Nazi actions. It is gained from the \"Confronting the Nazis\" card, choosing the NSDAP as the enemy of the SPD, certain advisor actions, and from the NSDAP growing too strong. It can also be gained from investigating the far-right and from using neorevisionism against the Nazi threat.">Nazi Urgency</span>!}: [+ nazi_urgency : coalition_dissent +] ?]
 
 [? if investigate_far_right > 0 : Far-Right Investigations: [+ investigate_far_right : coalition_dissent +] ?]
 
