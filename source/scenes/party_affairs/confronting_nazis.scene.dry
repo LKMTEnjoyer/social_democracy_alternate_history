@@ -19,6 +19,7 @@ Many in our party are calling for urgent action. The "neorevisionist" faction, l
 
 
 @not_a_big_deal
+subtitle: <button class="toggle">Effects</button><div class="hidden">Nazi Urgency - 1<br>Left Dissent + 5<br>Neorevisionist Dissent + 15</div>
 on-arrival: nazi_urgency -= 1; left_dissent += 5; neorevisionist_dissent += 15
 view-if: mierendorff_advisor = 0 and leber_advisor = 0 and schumacher_advisor = 0
 
@@ -37,7 +38,7 @@ The Nazis are one of the foremost threats to the German republic. However, we ar
 
 @iron_front
 title: Form the Iron Front!
-subtitle: The Iron Front consists of the SPD, the trade unions, and the Reichsbanner.
+subtitle: The Iron Front consists of the SPD, the trade unions, and the Reichsbanner. <br><button class="toggle">Effects</button><div class="hidden">Forms the Iron Front<br>Radicalization + 1<br>Nazi Urgency + 1<br>SPD Worker Support + 5<br>Support for the Republic + 5<br>Left Dissent - 8<br>Neorevisionist Dissent - 10<br>Neorevisionist Strength + 5</div>
 view-if: nazi_urgency >= 3 and iron_front_formed == 0
 on-arrival: iron_front_formed = 1; radicalization += 1; nazi_urgency += 1; workers_spd += 5*(1-dissent); pro_republic += 5*(1-dissent); left_dissent -= 8; neorevisionist_dissent -= 10; neorevisionist_strength += 5
 achievement: eiserne_front

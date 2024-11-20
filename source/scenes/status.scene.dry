@@ -244,7 +244,7 @@ Radicalism: [+ radicalization : coalition_dissent +]
 
 = [? if nazi_urgency > 0 or investigate_far_right > 0 : Antifascist Actions ?]
 
-[? if nazi_urgency > 0 : Nazi Urgency: [+ nazi_urgency : coalition_dissent +] ?]
+[? if nazi_urgency > 0 : {!<span class="tooltip-text" title="Nazi Urgency is required to form the Iron Front and to take certain anti-Nazi actions. It is gained from the "Confronting the Nazis" card, choosing the NSDAP as the enemy of the SPD, certain advisor actions, and from the NSDAP growing too strong. It can also be gained from investigating the far-right and from using neorevisionism against the Nazi threat.">Nazi Urgency</span>!}: [+ nazi_urgency : coalition_dissent +] ?]
 
 [? if investigate_far_right > 0 : Far-Right Investigations: [+ investigate_far_right : coalition_dissent +] ?]
 
