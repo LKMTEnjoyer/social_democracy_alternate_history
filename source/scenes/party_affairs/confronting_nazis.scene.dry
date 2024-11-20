@@ -31,6 +31,7 @@ view-if: economic_plan == 0 and black_thursday_seen == 1
 go-to: crisis_program
 
 @major_crisis
+subtitle: <button class="toggle">Effects</button><div class="hidden">Nazi Urgency + 1<br>Neorevisionist Dissent - 5<br>Neorevisionist Strength + 5</div>
 view-if: nazi_urgency < 5
 on-arrival: nazi_urgency += 1; neorevisionist_dissent -= 5; neorevisionist_strength += 5
 
