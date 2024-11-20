@@ -22,7 +22,8 @@ frequency: 1
 
 Changing the leadership of the party is painful, but perhaps it is necessary to adapt to changing circumstances.
 
-Removing advisors will increase dissent from their faction of the party, while selecting advisors will increase a faction's strength and reduce their dissent.
+Removing advisors will increase dissent from their faction of the party, while selecting advisors will increase a faction's strength.
+<br><button class="toggle">Effects</button><div class="hidden">Removing an advisor: Dissent of that faction + 5<br>Appointing an advisor: Strength of that faction + 5</div>
 
 - #remove_advisor
 - @add_advisors: Add advisors
