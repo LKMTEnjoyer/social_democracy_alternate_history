@@ -13,6 +13,11 @@
   display: block;
 }
 
+.advisor_tt{
+  color: gray;
+  font-size: small;
+}
+
 body {
   font-family: "Minion Pro", Georgia, serif;
   /*font-size: 1.125em;*/
