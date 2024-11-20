@@ -3,6 +3,31 @@ new-page: true
 go-to: eg_menu
 on-arrival: {!
 Q.game_over = 1;
+if ((Q.year = 1933 && Q.month >= 12) || Q.year >= 1934) {
+    if (Q.difficulty < 0) {
+        this.achieve('einigkeit');
+    } else if (Q.difficulty == 0) {
+        this.achieve('einigkeit_und_recht');
+    } else if (Q.difficulty > 0) {
+        this.achieve('einigkeit_und_recht_und_freiheit');
+    }
+
+    if (Q.historical_mode) {
+        this.achieve('schwarz_rot_gold');
+    }
+    // Brüder, zur Sonne, zur Freiheit - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty.
+    if (Q.difficulty >= 0 && Q.president == "Braun" && !(Q.chancellor == "Hitler") && Q.unemployed < 20 && Q.year == 1933 && !Q.civil_war_seen && Q.hitler_deported && Q.reparations <= -2 && Q.womens_rights >= 3) {
+        this.achieve('bruder_zur_sonne');
+    }
+    // Freie Marktwirtschaft - win without doing an economic plan.
+    if (!Q.economic_plan) {
+        this.achieve('freie_marktwirtschaft');
+    }
+
+    if (Q.agenda_2010) {
+    this.achieve('seeheimer');
+    }
+}
 // Achievements:
 // Große Koalition - form a grand coalition
 // Eiserne Front - Form the Iron Front.
@@ -350,6 +375,8 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_grosse_volkspartei: **Große Volkspartei** - form a People's Party and have at least 40% support from every demographic. ?]
 
+[? if game_achievement_seeheimer: **Seeheimer** - win a game with the Agenda 2010 mode activated.?]
+
 [? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
 
 [? if game_achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
@@ -451,6 +478,8 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_grosse_volkspartei: **Große Volkspartei** - form a People's Party and have at least 40% support from every demographic. ?]
 
+[? if achievement_seeheimer: **Seeheimer** - win a game with the Agenda 2010 mode activated.?]
+
 [? if achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
 
 [? if achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
@@ -549,6 +578,8 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 [? if not achievement_volkspartei: **Volkspartei** - the SPD is a People's Party. ?]
 
 [? if not achievement_grosse_volkspartei: **Große Volkspartei** - form a People's Party and have at least 40% support from every demographic. ?]
+
+[? if not achievement_seeheimer: **Seeheimer** - win a game with the Agenda 2010 mode activated.?]
 
 [? if not achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
 

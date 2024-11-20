@@ -18,6 +18,7 @@ Removing advisors will increase dissent from their faction of the party by 5, wh
 ###################### removing leaders
 
 @rm_main
+view-if: n_advisors > 0
 title: Remove advisors.
 tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
 frequency: 1
