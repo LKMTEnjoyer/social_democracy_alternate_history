@@ -7,10 +7,6 @@ on-arrival: month_activities += 1; shuffle_leadership_timer = 8;
 card-image: img/vorwarts_2.jpg
 go-to: rm_main
 
-Changing the leadership of the party is painful, but perhaps it is necessary to adapt to changing circumstances.
-
-Removing advisors will increase dissent from their faction of the party, while selecting advisors will increase a faction's strength and reduce their dissent.
-
 - @rm_main: Remove advisors
 - @add_advisors: Add advisors
 - @remove_none: Don't change advisors.
