@@ -402,7 +402,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
 
-[? if game_achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - enact two different economic plans. ?]
+[? if game_achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - have 1% unemployment by the end of the game. ?]
 
 [? if game_achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to 1933 without adopting an economic plan. ?]
 
@@ -511,7 +511,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
 
-[? if achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - enact two different economic plans. ?]
+[? if achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - have 1% unemployment by the end of the game. ?]
 
 [? if achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to 1933 without adopting an economic plan. ?]
 
@@ -618,7 +618,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
 
-[? if not achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - enact two different economic plans. ?]
+[? if not achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - have 1% unemployment by the end of the game. ?]
 
 [? if not achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to 1933 without adopting an economic plan. ?]
 
