@@ -414,7 +414,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
 
-[? if game_achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if game_achievement_bruder_zur_sonne: **<span style="color: red;">Brüder, zur Sonne, zur Freiheit</span>** - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty. ?]
 
 [? if game_achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
 
@@ -436,7 +436,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
 
-[? if game_achievement_arbeiterpartei: **Arbeiterpartei** - without forming a People's Party, enforce the 40-hour work week and shorter working hours, improve safety regulations, support workers' demands, empower works councils, reduce tariffs, implement food procurement and fully enact the WTB Plan. ?]
+[? if game_achievement_arbeiterpartei: **<span style="color: red;">Arbeiterpartei</span>** - without forming a People's Party, enforce the 40-hour work week and shorter working hours, improve safety regulations, support workers' demands, empower works councils, reduce tariffs, implement food procurement and fully enact the WTB Plan. ?]
 
 [? if game_achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
 
@@ -444,7 +444,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
 
-[? if game_achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if game_achievement_heidelberger_programm: **<span style="color: red;">Heidelberger Programm</span>** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
 
 [? if game_achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
 
@@ -523,7 +523,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
 
-[? if achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if achievement_bruder_zur_sonne: **<span style="color: red;">Brüder, zur Sonne, zur Freiheit</span>** - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty. ?]
 
 [? if achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
 
@@ -545,7 +545,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
 
-[? if achievement_arbeiterpartei: **Arbeiterpartei** - without forming a People's Party, enforce the 40-hour work week and shorter working hours, improve safety regulations, support workers' demands, empower works councils, reduce tariffs, implement food procurement and fully enact the WTB Plan. ?]
+[? if achievement_arbeiterpartei: **<span style="color: red;">Arbeiterpartei</span>** - without forming a People's Party, enforce the 40-hour work week and shorter working hours, improve safety regulations, support workers' demands, empower works councils, reduce tariffs, implement food procurement and fully enact the WTB Plan. ?]
 
 [? if achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
 
@@ -553,7 +553,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
 
-[? if achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if achievement_heidelberger_programm: **<span style="color: red;">Heidelberger Programm</span>** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
 
 [? if achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
 
@@ -630,7 +630,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_women_reichsbanner: **Mädchen in Uniform** - a woman's place is in the Reichsbanner. ?]
 
-[? if not achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty. ?]
+[? if not achievement_bruder_zur_sonne: **<span style="color: red;">Brüder, zur Sonne, zur Freiheit</span>** - reduce unemployment, pause reparations, increase women's rights, elect Otto Braun president, and deport Hitler in one playthrough on at least normal difficulty. ?]
 
 [? if not achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
 
@@ -652,7 +652,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_syndikalismus: **Syndikalismus** - support factory takeovers by the workers. ?]
 
-[? if not achievement_arbeiterpartei: **Arbeiterpartei** - without forming a People's Party, enforce the 40-hour work week and shorter working hours, improve safety regulations, support workers' demands, empower works councils, reduce tariffs, implement food procurement and fully enact the WTB Plan. ?]
+[? if not achievement_arbeiterpartei: **<span style="color: red;">Arbeiterpartei</span>** - without forming a People's Party, enforce the 40-hour work week and shorter working hours, improve safety regulations, support workers' demands, empower works councils, reduce tariffs, implement food procurement and fully enact the WTB Plan. ?]
 
 [? if not achievement_drei_pfeile: **Drei Pfeile** - defeat a coup without a civil war. ?]
 
@@ -660,7 +660,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_eu: **Vereinigte Staaten von Europa** - form a "European Union". ?]
 
-[? if not achievement_heidelberger_programm: **Heidelberger Programm** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
+[? if not achievement_heidelberger_programm: **<span style="color: red;">Heidelberger Programm</span>** - achieve the goals of the SPD's Heidelberg Program: social welfare, judicial reform, women's rights in the workplace and family, progressive taxation, works councils, and the formation of a European Union. ?]
 
 [? if not achievement_verfassungsreform: **Verfassungsreform** - pass a constitutional amendment. ?]
 
