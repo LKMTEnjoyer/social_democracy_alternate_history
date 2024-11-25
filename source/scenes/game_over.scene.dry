@@ -386,7 +386,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_grosse_volkspartei: **Große Volkspartei** - form a People's Party and have at least 40% support from every demographic. ?]
 
-[? if game_achievement_grosser_volkspartei: **<p style="color: red;">Größere Volkspartei</p>** - form a People's Party and have at least 50% support from every demographic. ?]
+[? if game_achievement_grosser_volkspartei: **<span style="color: red;">Größere Volkspartei</span>** - form a People's Party and have at least 50% support from every demographic. ?]
 
 [? if game_achievement_seeheimer: **Seeheimer** - win a game with the Agenda 2010 mode activated.?]
 
@@ -402,11 +402,11 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
 
-[? if game_achievement_unemployment: **<p style="color: red;">Unnatürliche Arbeitslosenquote</p>** - enact two different economic plans. ?]
+[? if game_achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - enact two different economic plans. ?]
 
 [? if game_achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to 1933 without adopting an economic plan. ?]
 
-[? if game_achievement_bruning: **<p style="color: red;">Antiarbeiterpartei</p>** - at any point in the game, have 100% unemployment. ?]
+[? if game_achievement_bruning: **<span style="color: red;">Antiarbeiterpartei</span>** - at any point in the game, have 100% unemployment. ?]
 
 [? if game_achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
 
@@ -495,7 +495,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_grosse_volkspartei: **Große Volkspartei** - form a People's Party and have at least 40% support from every demographic. ?]
 
-[? if achievement_grosser_volkspartei: **<p style="color: red;">Größere Volkspartei</p>** - form a People's Party and have at least 50% support from every demographic. ?]
+[? if achievement_grosser_volkspartei: **<span style="color: red;">Größere Volkspartei</span>** - form a People's Party and have at least 50% support from every demographic. ?]
 
 [? if achievement_seeheimer: **Seeheimer** - win a game with the Agenda 2010 mode activated.?]
 
@@ -511,11 +511,11 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
 
-[? if achievement_unemployment: **<p style="color: red;">Unnatürliche Arbeitslosenquote</p>** - enact two different economic plans. ?]
+[? if achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - enact two different economic plans. ?]
 
 [? if achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to 1933 without adopting an economic plan. ?]
 
-[? if achievement_bruning: **<"p style="color: red;">Antiarbeiterpartei</p>** - at any point in the game, have 100% unemployment. ?]
+[? if achievement_bruning: **<span style="color: red;">Antiarbeiterpartei</span>** - at any point in the game, have 100% unemployment. ?]
 
 [? if achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
 
@@ -602,7 +602,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_grosse_volkspartei: **Große Volkspartei** - form a People's Party and have at least 40% support from every demographic. ?]
 
-[? if not achievement_grosser_volkspartei: **<p style="color: red;">Größere Volkspartei</p>** - form a People's Party and have at least 50% support from every demographic. ?]
+[? if not achievement_grosser_volkspartei: **<span style="color: red;">Größere Volkspartei</span>** - form a People's Party and have at least 50% support from every demographic. ?]
 
 [? if not achievement_seeheimer: **Seeheimer** - win a game with the Agenda 2010 mode activated.?]
 
@@ -618,11 +618,11 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_wirtschaftsexperiment: **Wirtschaftsexperiment** - enact two different economic plans. ?]
 
-[? if not achievement_unemployment: **<p style="color: red;">Unnatürliche Arbeitslosenquote</p>** - enact two different economic plans. ?]
+[? if not achievement_unemployment: **<span style="color: red;">Unnatürliche Arbeitslosenquote</span>** - enact two different economic plans. ?]
 
 [? if not achievement_freie_marktwirtschaft: **Freie Marktwirtschaft** - survive to 1933 without adopting an economic plan. ?]
 
-[? if not achievement_bruning: **<p style="color: red;">Antiarbeiterpartei</p>** - at any point in the game, have 100% unemployment. ?]
+[? if not achievement_bruning: **<span style="color: red;">Antiarbeiterpartei</span>** - at any point in the game, have 100% unemployment. ?]
 
 [? if not achievement_equality: **Gleichheit** - pass reforms for women's rights. ?]
 
