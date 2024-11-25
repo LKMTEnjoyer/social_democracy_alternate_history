@@ -90,10 +90,6 @@ for (var c of Q.factions) {
     }
 }
 
-if (Q.unemployed <= 1) {
-    Q.unemployed = 1;
-}
-
 // re-calculate dissent.
 var total_strength = Q.left_strength + Q.center_strength + Q.labor_strength + Q.reformist_strength + Q.neorevisionist_strength;
 
@@ -327,6 +323,14 @@ if (Q.month_actions >= 1) {
         }
     }
 }
+if (Q.unemployed <= 1) {
+    Q.unemployed = 1;
+}
+if (Q.unemployed >= 100) {
+    Q.unemployed = 100;
+    this.achieve('bruning');
+}
+
 Q.has_event = 0;
 // check if there are any cards in #event, and then go to main if not.
 var scene = this.game.scenes['post_event.events_choice'];
