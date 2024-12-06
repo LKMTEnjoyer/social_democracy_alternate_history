@@ -5,6 +5,11 @@ on-arrival: {!
 if (Q.month_actions > 0) {
     Q.month_actions -= 1;
 }
+if (Q.party_organizations_media == 1) {
+    Q.month_actions -= 1;
+    Q.resources += 1;
+}
+Q.party_organizations_media = 0;
 // return card to hand
 var card = this.state.lastPlayedCard;
 card.image = card.cardImage;
