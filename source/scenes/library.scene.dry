@@ -469,11 +469,11 @@ if (d3 && window) {
 
     const largestValue = filteredData.reduce((max, current) => {
     return current.value > max ? current.value : max;
-    }, filteredData[0].value); 
+    }, 0); 
 
     const smallestValue = filteredData.reduce((min, current) => {
     return current.value < min ? current.value : min;
-    }, filteredData[0].value);
+    }, 1000);
     
     console.log(largestValue);
     console.log(smallestValue);
