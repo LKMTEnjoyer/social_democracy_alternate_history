@@ -465,13 +465,13 @@ if (d3 && window) {
     lines_4.width(width).height(300);
     d3.select("#public_opinion_history").datum(Q.public_records).call(lines_4);
 
-    var filteredData = Q.paramilitary_records.filter(item => !item.hasOwnProperty('date'));
+    const filteredData = Q.paramilitary_records.filter(item => !item.hasOwnProperty('date'));
 
-    var largestValue = filteredData.reduce((max, current) => {
+    const largestValue = filteredData.reduce((max, current) => {
     return current.value > max ? current.value : max;
     }, filteredData[0].value); 
 
-    var smallestValue = filteredData.reduce((min, current) => {
+    const smallestValue = filteredData.reduce((min, current) => {
     return current.value < min ? current.value : min;
     }, filteredData[0].value);
     
@@ -480,7 +480,7 @@ if (d3 && window) {
     var lines_5 = d3.linegraph(true, true, ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'police'],
             {'reichsbanner': '#E3000F', 'rfb': '#8B0000', 'stahlhelm': '#3f7bc1', 'sturm': '#954B00', 'reichswehr': '#000', 'police': '#AAAAAA'},
             {'reichsbanner': 'Reichsbanner', 'rfb': 'Rotfrontkämpferbund', 'stahlhelm': 'Stahlhelm', 'sturm': 'Sturmabteilung', 'reichswehr': 'Reichswehr', 'police': 'Prussian Police'}
-            ,largestValue + 20 , smallestValue - 20, 21);
+            , largestValue + 20 , smallestValue - 20, 21);
     lines_5.width(width).height(300);
     d3.select("#paramilitary_history").datum(Q.paramilitary_records).call(lines_5);
 }
