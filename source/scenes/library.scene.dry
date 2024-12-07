@@ -465,13 +465,6 @@ if (d3 && window) {
     lines_4.width(width).height(300);
     d3.select("#public_opinion_history").datum(Q.public_records).call(lines_4);
 
-    var minReichsbanner = d3.min(Q.public_records, d => d.reichsbanner);
-    var minRfb = d3.min(Q.public_records, d => d.rfb);
-    var minStahlhelm = d3.min(Q.public_records, d => d.stahlhelm);
-    var minSturm = d3.min(Q.public_records, d => d.sturm);
-    var minReichswehr = d3.min(Q.public_records, d => d.reichswehr);
-    var minPolice = d3.min(Q.public_records, d => d.police);
-
     var maxReichsbanner = d3.max(Q.public_records, d => d.reichsbanner);
     var maxRfb = d3.max(Q.public_records, d => d.rfb);
     var maxStahlhelm = d3.max(Q.public_records, d => d.stahlhelm);
@@ -479,9 +472,14 @@ if (d3 && window) {
     var maxReichswehr = d3.max(Q.public_records, d => d.reichswehr);
     var maxPolice = d3.max(Q.public_records, d => d.police);
     
-    var minAll2 = d3.min([minReichsbanner, minRfb, minStahlhelm, minSturm, minReichswehr, minPolice]);
     var maxAll2 = d3.max([maxReichsbanner, maxRfb, maxStahlhelm, maxSturm, maxReichswehr, maxPolice]);
     console.log(maxAll2)
+    console.log(maxReichsbanner)
+    console.log(maxRfb)
+    console.log(maxStahlhelm)
+    console.log(maxSturm)
+    console.log(maxAmaxReichswehrll2)
+    console.log(maxPolice)
     var lines_5 = d3.linegraph(true, true, ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'police'],
             {'reichsbanner': '#E3000F', 'rfb': '#8B0000', 'stahlhelm': '#3f7bc1', 'sturm': '#954B00', 'reichswehr': '#000', 'police': '#AAAAAA'},
             {'reichsbanner': 'Reichsbanner', 'rfb': 'Rotfrontkämpferbund', 'stahlhelm': 'Stahlhelm', 'sturm': 'Sturmabteilung', 'reichswehr': 'Reichswehr', 'police': 'Prussian Police'}
