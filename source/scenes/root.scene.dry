@@ -709,7 +709,7 @@ for (var party of Q.parties) {
     }
     Q[party + '_support'] = party_support;
     total_support += party_support; 
-}
+}!}
 go-to: custom 
 
 @sapd
