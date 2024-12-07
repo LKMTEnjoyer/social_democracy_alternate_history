@@ -5,6 +5,7 @@ go-to: post_event if started = 1; start_menu if started = 0
 @start_menu
 new-page: true
 on-arrival: {!
+Q.klassenkampf_mode = 0;
 Q.party_organizations_media = 0;
 Q.rb_power = 0;
 Q.sa_power = 0;
@@ -624,11 +625,12 @@ Here, you can activate different custom difficulty settings.
 - @agenda__2010: Agenda 2010
 - @polsim: Polsim mode
 - @sapd: SAPD mode
+- @class_war: Klassenkampf mode
 - @end
 - @start_menu_2: Go back to the main menu.
 
 @agenda__2010
-view-if: agenda_2010 = 0
+view-if: agenda_2010 = 0 and klassenkampf_mode = 0
 subtitle: Worker support for the SPD is permanently set to 0.
 on-arrival: {!
 Q.workers_spd = 0;
@@ -671,6 +673,43 @@ go-to: custom
 view-if: polsim = 0
 subtitle: All factions break away at the start of the game.
 on-arrival: polsim = 1;
+go-to: custom 
+
+@class_war
+view-if: klassenkampf_mode = 0 and agenda_2010 = 0
+subtitle: All demographics except workers and unemployed are permanently set to 0. Volkspartei is disabled.
+on-arrival: {!
+Q.new_middle_spd = 0;
+Q.rural_spd = 0;
+Q.old_middle_spd = 0;
+Q.catholics_spd = 0;
+Q.klassenkampf_mode = 1;
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c+'_'+party] < 0) {
+            Q[c+'_'+party] = 0;
+        }
+        class_votes += Q[c+'_'+party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized'] = Math.round(100*Q[c+'_'+party]/class_votes);
+    }
+}
+// calculate support for each of the parties
+var total_support = 0; 
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) { 
+            party_support += Q[c]*Q[c+'_'+party];
+        } else  { 
+            party_support += Q[c]*Q[c+'_'+party+'_normalized'];
+        } 
+    }
+    Q[party + '_support'] = party_support;
+    total_support += party_support; 
+}
 go-to: custom 
 
 @sapd
