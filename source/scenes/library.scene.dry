@@ -464,6 +464,13 @@ if (d3 && window) {
             maxAll + 5, minAll - 5, 21);
     lines_4.width(width).height(300);
     d3.select("#public_opinion_history").datum(Q.public_records).call(lines_4);
+
+
+    var lines_5 = d3.linegraph(true, true, ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'police'],
+            {'reichsbanner': '#E3000F', 'rfb': '#8B0000', 'stahlhelm': '#3f7bc1', 'sturm': '#954B00', 'reichswehr': '#000', 'police': '#AAAAAA'},
+            {'reichsbanner': 'Reichsbanner', 'rfb': 'Rotfrontkämpferbund', 'stahlhelm': 'Stahlhelm', 'sturm': 'Sturmabteilung', 'reichswehr': 'Reichswehr', 'police': 'Prussian Police'});
+    lines_5.width(width).height(300);
+    d3.select("#paramilitary_history").datum(Q.paramilitary_records).call(lines_5);
 }
 !}
 
@@ -512,4 +519,8 @@ if (d3 && window) {
 = Public opinion history
 
 {!<svg id="public_opinion_history" style="width: 500px; height: 300px;"> </svg>!}
+
+= paramilitary power history
+
+{!<svg id="paramilitary_history" style="width: 500px; height: 300px;"> </svg>!}
 # TODO: maybe add textual histories too? some accessibility stuff as well...

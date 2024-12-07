@@ -152,6 +152,13 @@ if (Q.month_actions >= 1) {
                              'republic': Q.pro_republic,
                              'nationalism': Q.nationalism,
                              'socialism': Q.socialism});
+    Q.paramilitary_records.push({'date': new Date(Q.year, Q.month - 1),
+                             'reichsbanner': Q.pro_republic,
+                             'rfb': Q.nationalism,
+                             'stahlhelm': Q.socialism,
+                             'sturm': Q.nationalism,
+                             'reichswehr': Q.socialism,
+                             'police': Q.nationalism});
     // change economic stats...
     // we're basically implicity drawing a Philips curve
     // budget deficits lead to some inflation

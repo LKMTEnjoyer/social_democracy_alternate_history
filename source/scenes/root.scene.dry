@@ -319,6 +319,7 @@ Q.party_support_records = [];
 // inflation and unemployment records
 Q.economic_records = [];
 Q.public_records = [];
+Q.paramilitary_records = [];
 
 
 // State of the government
