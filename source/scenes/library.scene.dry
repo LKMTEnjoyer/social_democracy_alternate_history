@@ -448,6 +448,22 @@ if (d3 && window) {
             maxUnemployment + 5, minInflation - 5, 21);
     lines_3.width(width).height(300);
     d3.select("#economic_history").datum(Q.economic_records).call(lines_3);
+
+
+    var minRepublic = d3.min(Q.public_records, d => d.republic);
+    var minSocialism = d3.min(Q.public_records, d => d.socialism);
+    var minNationalism = d3.min(Q.public_records, d => d.nationalism);
+    var maxSocialism = d3.max(Q.public_records, d => d.socialism);
+    var maxRepublic = d3.max(Q.public_records, d => d.republic);
+    var maxNationalism = d3.max(Q.public_records, d => d.nationalism);
+    var minAll = d3.min([minRepublic, minSocialism, minNationalism])
+    var maxAll = d3.max([maxRepublic, maxSocialism, maxNationalism])
+    var lines_4 = d3.linegraph(true, true, ['republic', 'socialism', 'nationalism'],
+            {'republic': '#0000FF', 'socialism': '#CF0000', 'nationalism': '#FFA600'},
+            {'republic': 'Republic Support', 'socialism': 'Socialism', 'nationalism': 'Nationalism'},
+            maxAll + 5, minAll - 5, 21);
+    lines_4.width(width).height(300);
+    d3.select("#public_opinion_history").datum(Q.public_records).call(lines_4);
 }
 !}
 
@@ -492,4 +508,8 @@ if (d3 && window) {
 = Economic history
 
 {!<svg id="economic_history" style="width: 500px; height: 300px;"> </svg>!}
+
+= Public opinion history
+
+{!<svg id="public_opinion_history" style="width: 500px; height: 300px;"> </svg>!}
 # TODO: maybe add textual histories too? some accessibility stuff as well...
