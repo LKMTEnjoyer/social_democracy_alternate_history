@@ -465,22 +465,27 @@ if (d3 && window) {
     lines_4.width(width).height(300);
     d3.select("#public_opinion_history").datum(Q.public_records).call(lines_4);
 
-    const filteredData = Q.paramilitary_records.filter(item => !item.hasOwnProperty('date'));
+    var minReichsbanner = d3.min(Q.public_records, d => d.reichsbanner);
+    var minRfb = d3.min(Q.public_records, d => d.rfb);
+    var minStahlhelm = d3.min(Q.public_records, d => d.stahlhelm);
+    var minSturm = d3.min(Q.public_records, d => d.sturm);
+    var minReichswehr = d3.min(Q.public_records, d => d.reichswehr);
+    var minPolice = d3.min(Q.public_records, d => d.police);
 
-    const largestValue = filteredData.reduce((max, current) => {
-    return current.value > max ? current.value : max;
-    }, 0); 
+    var maxReichsbanner = d3.max(Q.public_records, d => d.reichsbanner);
+    var maxRfb = d3.max(Q.public_records, d => d.rfb);
+    var maxStahlhelm = d3.max(Q.public_records, d => d.stahlhelm);
+    var maxSturm = d3.max(Q.public_records, d => d.sturm);
+    var maxReichswehr = d3.max(Q.public_records, d => d.reichswehr);
+    var maxPolice = d3.max(Q.public_records, d => d.police);
 
-    const smallestValue = filteredData.reduce((min, current) => {
-    return current.value < min ? current.value : min;
-    }, 1000);
-    
-    console.log(largestValue);
-    console.log(smallestValue);
+    var minAll2 = d3.min([minReichsbanner, minRfb, minStahlhelm, minSturm, minReichswehr, minPolice]);
+    var maxAll2 = d3.max([maxReichsbanner, maxRfb, maxStahlhelm, maxSturm, maxReichswehr, maxPolice]);
+
     var lines_5 = d3.linegraph(true, true, ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'police'],
             {'reichsbanner': '#E3000F', 'rfb': '#8B0000', 'stahlhelm': '#3f7bc1', 'sturm': '#954B00', 'reichswehr': '#000', 'police': '#AAAAAA'},
             {'reichsbanner': 'Reichsbanner', 'rfb': 'Rotfrontkämpferbund', 'stahlhelm': 'Stahlhelm', 'sturm': 'Sturmabteilung', 'reichswehr': 'Reichswehr', 'police': 'Prussian Police'}
-            , largestValue + 20 , smallestValue - 20, 21);
+            , maxAll2 + 20 , minAll2 - 20, 21);
     lines_5.width(width).height(300);
     d3.select("#paramilitary_history").datum(Q.paramilitary_records).call(lines_5);
 }
