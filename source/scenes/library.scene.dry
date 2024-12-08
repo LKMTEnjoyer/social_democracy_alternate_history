@@ -465,24 +465,13 @@ if (d3 && window) {
     lines_4.width(width).height(300);
     d3.select("#public_opinion_history").datum(Q.public_records).call(lines_4);
 
-    var minReichsbanner = d3.min(Q.paramilitary_records, d => d.reichsbanner);
-    var minRfb = d3.min(Q.paramilitary_records, d => d.rfb);
-    var minStahlhelm = d3.min(Q.paramilitary_records, d => d.stahlhelm);
-    var minSturm = d3.min(Q.paramilitary_records, d => d.sturm);
-    var minReichswehr = d3.min(Q.paramilitary_records, d => d.reichswehr);
-    var minEnemyrw = d3.min(Q.paramilitary_records, d => d.enemy_rw);
-    var minPolice = d3.min(Q.paramilitary_records, d => d.police);
+    var fields = ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'enemy_rw', 'police'];
 
-    var maxReichsbanner = d3.max(Q.paramilitary_records, d => d.reichsbanner);
-    var maxRfb = d3.max(Q.paramilitary_records, d => d.rfb);
-    var maxStahlhelm = d3.max(Q.paramilitary_records, d => d.stahlhelm);
-    var maxSturm = d3.max(Q.paramilitary_records, d => d.sturm);
-    var maxReichswehr = d3.max(Q.paramilitary_records, d => d.reichswehr);
-    var maxEnemyrw = d3.max(Q.paramilitary_records, d => d.enemy_rw);
-    var maxPolice = d3.max(Q.paramilitary_records, d => d.police);
-    
-    var minAll2 = d3.min([minReichsbanner, minRfb, minStahlhelm, minSturm, minReichswehr, minEnemyrw, minPolice]);
-    var maxAll2 = d3.max([maxReichsbanner, maxRfb, maxStahlhelm, maxSturm, maxReichswehr, maxEnemyrw, maxPolice]);
+    var minValues = fields.map(field => d3.min(Q.paramilitary_records, d => d[field]));
+    var maxValues = fields.map(field => d3.max(Q.paramilitary_records, d => d[field]));
+
+    var minAll2 = d3.min(minValues);
+    var maxAll2 = d3.max(maxValues);
 
     var lines_5 = d3.linegraph(true, true, ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'enemy_rw', 'police'],
             {'reichsbanner': '#E3000F', 'rfb': '#8B0000', 'stahlhelm': '#3f7bc1', 'sturm': '#954B00', 'reichswehr': '#888888', 'enemy_rw': '#4A2500', 'police': '#AAAAAA'},
