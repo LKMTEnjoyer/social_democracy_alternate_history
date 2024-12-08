@@ -485,7 +485,7 @@ if (d3 && window) {
     var lines_5 = d3.linegraph(true, true, ['reichsbanner', 'rfb', 'stahlhelm', 'sturm', 'reichswehr', 'police'],
             {'reichsbanner': '#E3000F', 'rfb': '#8B0000', 'stahlhelm': '#3f7bc1', 'sturm': '#954B00', 'reichswehr': '#000', 'police': '#AAAAAA'},
             {'reichsbanner': 'Reichsbanner', 'rfb': 'Rotfrontkämpferbund', 'stahlhelm': 'Stahlhelm', 'sturm': 'Sturmabteilung', 'reichswehr': 'Reichswehr', 'police': 'Prussian Police'}
-            , 1000 , 0, 21);
+            , maxAll2+20 , minAll2 -20, 21);
     lines_5.width(width).height(300);
     d3.select("#paramilitary_history").datum(Q.paramilitary_records).call(lines_5);
 }
