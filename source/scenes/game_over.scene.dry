@@ -3,7 +3,7 @@ new-page: true
 go-to: eg_menu
 on-arrival: {!
 Q.game_over = 1;
-if ((Q.year = 1933 && Q.month >= 12) || Q.year >= 1934) {
+if ((Q.year == 1933 && Q.month >= 12) || Q.year >= 1934) {
     if (Q.difficulty < 0) {
         this.achieve('einigkeit');
     } else if (Q.difficulty == 0) {
