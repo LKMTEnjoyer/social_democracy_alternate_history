@@ -474,7 +474,7 @@ if (d3 && window) {
 
     var maxReichsbanner = d3.max(Q.paramilitary_records, d => d.reichsbanner);
     var maxRfb = d3.max(Q.paramilitary_records, d => d.rfb);
-    var maxStahlhelm = d3.max(Q.publiparamilitary_recordsc_records, d => d.stahlhelm);
+    var maxStahlhelm = d3.max(Q.paramilitary_records, d => d.stahlhelm);
     var maxSturm = d3.max(Q.paramilitary_records, d => d.sturm);
     var maxReichswehr = d3.max(Q.paramilitary_records, d => d.reichswehr);
     var maxPolice = d3.max(Q.paramilitary_records, d => d.police);
