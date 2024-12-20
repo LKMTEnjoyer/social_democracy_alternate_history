@@ -250,6 +250,14 @@ go-to: coalition_menu
 
 **Election results:**
 
+<img src="district1.svg">
+
+<img src="district2.svg">
+
+<img src="district3.svg">
+
+<img src="district4.svg">
+
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
