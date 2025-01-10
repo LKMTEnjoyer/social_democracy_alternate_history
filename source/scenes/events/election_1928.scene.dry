@@ -70,7 +70,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
     }
 }
 for (var party of Q.parties) {
-        Q[party + '_r'] = Q[party + '_r'].toFixed(1);
+        Q[party + '_r'] = Math.round(Q[party + '_r']*10)/10;
 }
 // get change arrows and signs
 
