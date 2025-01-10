@@ -1,0 +1,8 @@
+on-arrival: {!
+// Einigkeit - survive on easy without a civil war.
+// Einigkeit und Recht - survive on medium without a civil war.
+// Einigkeit und Recht und Freiheit - survive on hard without a civil war.
+
+!}
+
+- @game_over: Game over.
