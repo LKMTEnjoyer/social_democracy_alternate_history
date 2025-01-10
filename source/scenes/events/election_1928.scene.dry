@@ -85,22 +85,22 @@ if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r) {
 }
 
 // coalitions
-Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3;
-Q.grand_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r;
-Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
-Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
-Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
-Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
-Q.left_coalition = Q.spd_r + Q.kpd_r + Q.sapd_r;
+Q.weimar_coalition = Math.round((Q.spd_r + Q.ddp_r + Q.z_r - 3)*10)/10;
+Q.grand_coalition = Math.round((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r)*10)/10;
+Q.bourgeois_coalition = Math.round((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r)*10)/10;
+Q.center_right_coalition = Math.round((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r)*10)/10;
+Q.right_coalition = Math.round((Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r)*10)/10;
+Q.far_right_coalition = Math.round((Q.dnvp_r + Q.nsdap_r)*10)/10;
+Q.left_coalition = Math.round((Q.spd_r + Q.kpd_r + Q.sapd_r)*10)/10;
 // this is an absurd concept lol
-Q.popular_front_coalition = Q.spd_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
-Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r + Q.dnvp_r;
+Q.popular_front_coalition = Math.round((Q.spd_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r)*10)/10;
+Q.anti_democratic_coalition = Math.round((Q.kpd_r + Q.nsdap_r + Q.dnvp_r)*10)/10;
 // aka everyone except nazi, kpd, dnvp
-Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
+Q.neo_weimar_coalition = Math.round((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r)*10)/10;
 // Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
-Q.hitler_right_coalition = Q.z_r + Q.dnvp_r + Q.nsdap_r;
+Q.hitler_right_coalition = Math.round((Q.z_r + Q.dnvp_r + Q.nsdap_r)*10)/10;
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
-Q.progressive_coalition = Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r;
+Q.progressive_coalition = Math.round((Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r)*10)/10;
 
 if (Q.kpd_relation >= 30) {
     Q.weimar_coalition += Q.sapd_r;
