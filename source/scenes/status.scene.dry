@@ -65,6 +65,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 # = Public Opinion
 
 @politics
+
 {!<script>
 function ddp_increase() {
     Q.ddp_relation += 5;
