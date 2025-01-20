@@ -65,11 +65,11 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 # = Public Opinion
 
 @politics
-on-display:<script>
+on-display: {!<script>
 function ddp_increase() {
     Q.ddp_relation += 5;
 }
-<script>
+<script>!}
 
 = Inter-party Relations
 
