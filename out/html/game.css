@@ -11,7 +11,14 @@
   width: 25px;  /* Adjust the size of the image */
   height: 25px; /* Adjust the size of the image */
 }
+.button:hover {
+  transform: scale(1.1); /* Slightly enlarges the button */
+}
 
+/* Active effect (when clicked) */
+.button:active {
+  transform: scale(1.05); /* Slightly reduces the button size */
+}
 .hidden {
   display: none;
   border: 1.5px solid #888;
