@@ -66,11 +66,11 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 @politics
 
-{!<script>
+<script>
 function ddp_increase() {
     Q.ddp_relation += 5;
 }
-<script>!}
+<script>
 
 = Inter-party Relations
 
