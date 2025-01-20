@@ -65,13 +65,21 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 # = Public Opinion
 
 @politics
+on-display:{!
+    const button = document.getElementById('ddp_plus');
 
+    function ddp_increase() {
+      Q.ddp_relation += 5;
+    }
+
+    button.addEventListener('click', ddp_increase);
+!}
 = Inter-party Relations
 
 
 {!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]<button class="button" onclick="ddp_increase()"><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
+{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]<button class="button" id="ddp_plus" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
 {!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
