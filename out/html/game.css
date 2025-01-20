@@ -6,8 +6,8 @@
 }
 .button img {
   display: block;
-  width: 50px;  /* Adjust the size of the image */
-  height: 50px; /* Adjust the size of the image */
+  width: 25px;  /* Adjust the size of the image */
+  height: 25px; /* Adjust the size of the image */
 }
 
 .hidden {
