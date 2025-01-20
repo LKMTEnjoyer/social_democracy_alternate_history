@@ -71,11 +71,11 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 {!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
+{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
 [? if communist_coalition > 0 : KPD Coalition Support: [+ communist_coalition : coalition_dissent +] ?]
 
