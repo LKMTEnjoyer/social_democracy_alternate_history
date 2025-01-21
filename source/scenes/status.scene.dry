@@ -126,7 +126,7 @@ if (Q.sa_strength) {
 {!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
 <br> <button class="button" onclick="change_var('rb_strength', 100)"><img src="img/plus.png"></button><button class="button" onclick="change_var('rb_strength', -100)"><img src="img/minus.png"></button>
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +] <br> <button class="button" onclick="change_var('rb_militancy', 0.05)"><img src="img/plus.png"></button><button class="button" onclick="change_var('rb_militancy', -0.05)"><img src="img/minus.png"></button>
+Reichsbanner Militarization: [+ rb_militancy : militancy +] <br> <br> <button class="button" onclick="change_var('rb_militancy', 0.05)"><img src="img/plus.png"></button><button class="button" onclick="change_var('rb_militancy', -0.05)"><img src="img/minus.png"></button>
 
 {!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
 
