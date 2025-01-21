@@ -1,3 +1,3 @@
 function ddp_increase() {
-    Q.ddp_relation += 5;
+    dendryUI.dendryEngine.state.qualities.ddp_relation += 5;
 }
