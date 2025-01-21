@@ -1,3 +1,5 @@
+let sandbox = dendryUI.dendryEngine.state.qualities;
+
 function ddp_increase() {
-    dendryUI.dendryEngine.state.qualities.ddp_relation += 5;
+    sandbox.ddp_relation += 5;
 }
