@@ -14,7 +14,7 @@ if (Q.inflation) {
 
 [+ month : month +] [+ year +]
 
-Resources available: [+ resources +] <button class="button" onclick="change_var('resources', 4)"><img src="img/plus.png"></button><button class="button" onclick="change_var('resources', -4)"><img src="img/minus.png"></button>
+Resources available: [+ resources +] <br> <button class="button" onclick="change_var('resources', 4)"><img src="img/plus.png"></button><button class="button" onclick="change_var('resources', -4)"><img src="img/minus.png"></button>
 
 SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
@@ -124,8 +124,9 @@ if (Q.sa_strength) {
 = Paramilitaries
 
 {!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+<br> <button class="button" onclick="change_var('rb_strength', 100)"><img src="img/plus.png"></button><button class="button" onclick="change_var('rb_strength', -100)"><img src="img/minus.png"></button>
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+Reichsbanner Militarization: [+ rb_militancy : militancy +] <br> <button class="button" onclick="change_var('rb_militancy', 0.05)"><img src="img/plus.png"></button><button class="button" onclick="change_var('rb_militancy', -0.05)"><img src="img/minus.png"></button>
 
 {!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
 
