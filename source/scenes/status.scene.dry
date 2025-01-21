@@ -65,14 +65,13 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 # = Public Opinion
 
 @politics
-on-display:{!
+= Inter-party Relations
+
+{!
     function ddp_increase() {
       Q.ddp_relation += 5;
     }
 !}
-
-= Inter-party Relations
-
 
 {!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]<button class="button" onclick=""><img src="img/plus.png"></button><button class="button" onclick=""><img src="img/minus.png"></button>
 
