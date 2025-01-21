@@ -14,7 +14,7 @@ if (Q.inflation) {
 
 [+ month : month +] [+ year +]
 
-Resources available: [+ resources +]
+Resources available: [+ resources +] <button class="button" onclick="change_var('resources', 4)"><img src="img/plus.png"></button><button class="button" onclick="change_var('resources', -4)"><img src="img/minus.png"></button>
 
 SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
@@ -51,7 +51,7 @@ Reichstag composition:
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+[? if spd_in_government = 1 : Budget: [+ budget +] <button class="button" onclick="change_var('budget', 2)"><img src="img/plus.png"></button><button class="button" onclick="change_var('budget', -2)"><img src="img/minus.png"></button> ?]
 
 Welfare: [+ welfare : taxation +] 
 
