@@ -12,6 +12,6 @@ function clear_saves() {
         localStorage[save_prefix + slot] = '';
         localStorage[save_prefix + '_timestamp_' + slot] = '';
     }
-    this.populateSaveSlots(8, 2);
+    dendryUI.showSaveSlots();
     }
 }
