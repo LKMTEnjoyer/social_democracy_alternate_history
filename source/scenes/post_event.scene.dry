@@ -1,6 +1,16 @@
 title: Post Event
 new-page: true
 on-arrival: {!
+
+if (Q.workers_kpd_normalized > Q.workers_spd_normalized) {
+    if (Q.rfb_banned or Q.rfb_banned_prussia) {
+        Q.rfb_strength += 50/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
+    } else {
+        Q.rfb_strength += 100/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
+    }
+}
+
+
 Q.rb_power = Math.round(Q.rb_strength*Q.rb_militancy);
 Q.sa_power = Math.round(Q.sa_strength*Q.sa_militancy);
 Q.sh_power = Math.round(Q.sh_strength*Q.sh_militancy);
