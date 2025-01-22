@@ -3,7 +3,7 @@ new-page: true
 subtitle: A new agreement on reparations
 tags: event
 view-if: year = 1929 and month >= 7 and in_right_coalition = 0 and young_plan_seen = 0
-on-arrival: young_plan_seen = 1
+on-arrival: young_plan_seen = 1; young_plan_outcome = 0
 max-visits: 1
 
 = Young Plan
@@ -23,7 +23,7 @@ How should we campaign in favor of the Plan?
 - @rational: The Young Plan is simply the most rational choice for Germany.
 
 @internationalism
-on-arrival: nationalism -= 5*(1-dissent) if pacifism >= 2 else nationalism += 3; pacifism += 1; workers_spd += 5*(1-dissent) if pacifism >= 3 and nationalism <= 50; workers_nsdap += 4 if pacifism <= 3; rural_nsdap += 5; catholics_spd -= 4 if pacifism <= 3; rural_dvp -= 4
+on-arrival: nationalism -= 5*(1-dissent) if pacifism >= 2 else nationalism += 3; pacifism += 1; workers_spd += 5*(1-dissent) if pacifism >= 3 and nationalism <= 50; workers_nsdap += 4 if pacifism <= 3; rural_nsdap += 5; catholics_spd -= 4 if pacifism <= 3; rural_dvp -= 4; young_plan_outcome = 1 if pacifism >= 3 and nationalism <= 50;
 
 We rail hard against nationalism and in favor of pacifism and belonging to the international community of nations. The referendum easily fails, with only around 15% of voters supporting it. It seems that nationalism is not omnipotent in Germany, despite everything. [? if pacifism >= 3 and nationalism <= 50 : We have rallied the workers to the cause of internationalism. ?]
 

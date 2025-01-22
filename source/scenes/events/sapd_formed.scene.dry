@@ -3,6 +3,8 @@ on-arrival: {!
 Q.sapd_formed = 1;
 Q.parties.push('sapd');
 
+Q.rb_strength -= 300;
+
 Q.workers_sapd = 10;
 Q.workers_spd -= 3;
 Q.new_middle_sapd = 1;

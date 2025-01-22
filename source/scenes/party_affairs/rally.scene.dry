@@ -14,6 +14,7 @@ The Nazi SA has disrupted our rally! Their street troops are preventing us from 
 - @police_protect: Call the police to protect our rally.
 - @rb_protect: Use the Reichsbanner to protect our rally.
 - @both_protect: The police and Reichsbanner should work together to protect our rally.
+- @communist_protect: Protect our rally and march along with the RFB!
 - @cancel: Cancel the rally.
 
 @police_protect
@@ -62,11 +63,28 @@ on-arrival: workers_nsdap += 3; rb_strength -= 50
 
 Unfortunately, the police and Reichsbanner were not able to hold back the SA mob. The Nazis have won this show of strength.
 
-
 @cancel
 on-arrival: workers_nsdap += 3;
 
 The SA have won this show of strength.
+
+@communist_protect
+view-if: kpd_relation >= 55 and rfb_banned = 0
+choose-if: kpd_truce = 1 
+unavailable-subtitle: We must make peace with the RFB before working together.
+on-arrival: rb_success = rb_strength*rb_militancy - sa_strength*sa_militancy + rfb_militancy*rfb_strength; strife += 1
+go-to: rfb_protect_win if rb_success >= 0; rfb_protect_lose if rb_success < 0
+
+@rfb_protect_win
+on-arrival: workers_kpd += 2; kpd_relation += 2;
+go-to: main_rally
+
+The RFB and Reichsbanner have successfully protected our rally against the SA! Our meeting can go ahead as usual. This has led to improved relations with the KPD, though they gain some popularity with the workers.
+
+@rfb_protect_lose
+on-arrival: workers_nsdap += 3; rb_strength -= 50; rfb_strength -= 25;
+
+Unfortunately, the RFB and Reichsbanner were not able to hold back the SA mob. The Nazis have won this show of strength.
 
 @main_rally
 

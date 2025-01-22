@@ -127,37 +127,175 @@ if (Q.dissent < 0) {
 // 1. update dates
 if (Q.month_actions >= 1) {
     
-    if (Q.workers_kpd_normalized > Q.workers_spd_normalized) {
-        if (Q.rfb_banned || Q.rfb_banned_prussia) {
-            Q.rfb_strength += 50/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
-        } else {
-            Q.rfb_strength += 100/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
+    // after Black Thursday, RFB will gain members if worker support is low
+    // may need rebalancing, but this won't really come up often
+    
+    if (Q.workers_kpd_normalized > Q.workers_spd_normalized && Q.black_thursday_seen == 1) {
+        
+        Q.rfb_growth = 100/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
+
+        // banning it essentially cripples the RFB growth
+        if (Q.rfb_banned) {
+            Q.rfb_growth *= 0.05;
+        }
+
+        // this will probably not come up very often either
+        // starting to resolve the depression will slow down the growth
+        if (Q.unemployed <= 15 && Q.works_program == 1) {
+            Q.rfb_growth *= 0.5;
+        } else if (Q.unemployed <= 15 || Q.works_program == 1) {
+            Q.rfb_growth *= 0.75;
+        }
+
+        // basically the rationale is that if the KPD enters a government and succeeds 
+        // Return to Normalcy doesn't completely stop the RFB from growing
+        // idk if it makes sense really 
+        
+        if (Q.return_to_normalcy) {
+            Q.rfb_growth = 0;
         }
     }
 
+    Q.rfb_strength += Q.rfb_growth;
+
     if (Q.year == 1929) {
-        Q.sa_strength += 50/12;
-        Q.sh_strength += 100/12;
+        // Slow down paramilitary growth if they are banned
+        // scales to police loyalty
+
+        Q.sa_growth = 25/12;
+        Q.sh_growth = 100/12;
+
+        // if workers weren't rallied to internationalism SA grows faster
+        if (Q.young_plan_outcome == 0) {
+            Q.sa_growth += 50/12;
+        }
+
+        if (Q.black_thursday_seen) {
+            Q.sa_growth += 50/12;
+        }
+
+        if (Q.sh_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sh_growth -= 25/12;
+            } 
+        } 
+
     }
     if (Q.year == 1930) {
-        Q.sa_strength += 100/12;
-        Q.sh_strength += 100/12;
+        
+        Q.sa_growth = 100/12;
+        Q.sh_growth = 100/12;
+
+        if (Q.young_plan_outcome == 0) {
+            Q.sa_growth += 25/12;
+        }
+
+        if (Q.sh_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sh_growth -= 25/12;
+            } 
+        } 
+
+        if (Q.sa_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sa_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sa_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sa_growth -= 25/12;
+            } 
+        } 
+
+        if (Q.hitler_deported) {
+            Q.sa_growth *= 0.5;
+        }
     }
     if (Q.year == 1931) {
-        Q.sa_strength += 50/12;
-        Q.sh_strength += 50/12;
+        Q.sa_growth = 50/12;
+        Q.sh_growth = 50/12;
         if (!Q.works_program) {
-            Q.sa_strength += 100/12;
-            Q.sh_strength += 50/12;
+            Q.sa_growth += 100/12;
+            Q.sh_growth += 50/12;
+        }
+        if (Q.sh_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sh_growth -= 25/12;
+            } 
+        } 
+
+        if (Q.sa_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sa_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sa_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sa_growth -= 25/12;
+            } 
+        } 
+
+        if (Q.hitler_deported) {
+            Q.sa_growth *= 0.5;
         }
     }
     if (Q.year == 1932) {
         if (!Q.works_program) {
-            Q.sa_strength += 200/12;
+            Q.sa_growth = 200/12;
         } else if (Q.unemployed > 25) {
-            Q.sa_strength += 50/12;
+            Q.sa_growth = 50/12;
+        }
+        if (Q.sh_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sh_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sh_growth -= 25/12;
+            } 
+        } 
+
+        if (Q.sa_banned) {
+            if (Q.prussian_police_loyalty >= 0.90) {
+                Q.sa_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.75) {
+                Q.sa_growth -= 25/12;
+            }  
+            if (Q.prussian_police_loyalty >= 0.5) {
+                Q.sa_growth -= 25/12;
+            } 
+        } 
+
+        if (Q.hitler_deported) {
+            Q.sa_growth *= 0.5;
         }
     }
+
+    Q.sa_strength += Q.sa_growth;
+    Q.sh_strength += Q.sh_growth;
 
     Q.time += 1;
     Q.month_actions = 0;

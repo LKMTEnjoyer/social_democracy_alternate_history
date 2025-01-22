@@ -5,6 +5,10 @@ go-to: post_event if started = 1; start_menu if started = 0
 @start_menu
 new-page: true
 on-arrival: {!
+Q.young_plan_outcome = 2;
+Q.sa_growth = 0;
+Q.sh_growth = 0;
+Q.rfb_growth = 0;
 Q.klassenkampf_mode = 0;
 Q.party_organizations_media = 0;
 Q.rb_power = 0;
