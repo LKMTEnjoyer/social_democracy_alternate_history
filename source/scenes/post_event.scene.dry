@@ -128,7 +128,7 @@ if (Q.dissent < 0) {
 if (Q.month_actions >= 1) {
     
     if (Q.workers_kpd_normalized > Q.workers_spd_normalized) {
-        if (Q.rfb_banned or Q.rfb_banned_prussia) {
+        if (Q.rfb_banned || Q.rfb_banned_prussia) {
             Q.rfb_strength += 50/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
         } else {
             Q.rfb_strength += 100/12*Q.workers_kpd_normalized/(Q.workers_spd_normalized+10);
