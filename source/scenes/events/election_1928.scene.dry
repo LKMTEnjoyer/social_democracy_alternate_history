@@ -351,20 +351,20 @@ for (var c of Q.classes) {
 for (let i = 0; i < 35; i++) {
     const state_classes = state_demographics[i];
 
-    let state = {};
+    let state_d = {};
 
-    const state.rural = state_classes[0];
-    const state.workers = state_classes[1];
-    const state.new_middle = state_classes[2];
-    const state.old_middle = state_classes[3];
-    const state.catholics = state_classes[4];
-    const state.unemployed = state_classes[5];
+    const state_d.rural = state_classes[0];
+    const state_d.workers = state_classes[1];
+    const state_d.new_middle = state_classes[2];
+    const state_d.old_middle = state_classes[3];
+    const state_d.catholics = state_classes[4];
+    const state_d.unemployed = state_classes[5];
     
     var total_support = 0; 
     for (var party of Q.parties) {
         var party_support = 0;
         for (var c of Q.classes) {
-            party_support += state[c]*Q[c+'_'+party+'_normalized'];
+            party_support += state_d[c]*Q[c+'_'+party+'_normalized'];
         }
         Q[party + '_support'] = party_support;
         total_support += party_support; 
