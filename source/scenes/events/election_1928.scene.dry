@@ -353,12 +353,12 @@ for (let i = 0; i < 35; i++) {
 
     let state_d = {};
 
-    const state_d.rural = state_classes[0];
-    const state_d.workers = state_classes[1];
-    const state_d.new_middle = state_classes[2];
-    const state_d.old_middle = state_classes[3];
-    const state_d.catholics = state_classes[4];
-    const state_d.unemployed = state_classes[5];
+    state_d["rural"] = state_classes[0];
+    state_d["workers"] = state_classes[1];
+    state_d["new_middle"] = state_classes[2];
+    state_d["old_middle"] = state_classes[3];
+    state_d["catholics"] = state_classes[4];
+    state_d["unemployed"] = state_classes[5];
     
     var total_support = 0; 
     for (var party of Q.parties) {
