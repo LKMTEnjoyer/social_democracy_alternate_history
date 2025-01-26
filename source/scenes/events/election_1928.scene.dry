@@ -328,7 +328,57 @@ for (let i = 0; i < unemployment_multipliers.length; i++) {
     state_demographics[i].push(multiplier);  
 }
 
-console.log(state_demographics);
+const state_votes = [];
+
+for (let i = 0; i < 35; i++) {
+    state_votes.push([]);
+}
+
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c+'_'+party] < 0) {
+            Q[c+'_'+party] = 0;
+        }
+        class_votes += Q[c+'_'+party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized'] = 100*Q[c+'_'+party]/class_votes;
+        Q[c + '_' + party + '_display'] = Math.round(100*Q[c+'_'+party]/class_votes);
+    }
+}
+
+for (let i = 0; i < 35; i++) {
+    const state_classes = state_demographics[i];
+
+    let state = {};
+
+    const state.rural = state_classes[0];
+    const state.workers = state_classes[1];
+    const state.new_middle = state_classes[2];
+    const state.old_middle = state_classes[3];
+    const state.catholics = state_classes[4];
+    const state.unemployed = state_classes[5];
+    
+    var total_support = 0; 
+    for (var party of Q.parties) {
+        var party_support = 0;
+        for (var c of Q.classes) {
+            party_support += state[c]*Q[c+'_'+party+'_normalized'];
+            } 
+        }
+        Q[party + '_support'] = party_support;
+        total_support += party_support; 
+    }
+    
+    for (var party of Q.parties) {
+        Q[party+'_normalized'] = Q[party + '_support']/total_support;
+        Q[party+'_votes'] = Math.round(Q[party+'_normalized']*1000)/10;
+        state_votes[i].push(Q[party+'_votes'])
+    }
+}
+
+console.log(state_votes);
 
 !}
 go-to: coalition_menu
