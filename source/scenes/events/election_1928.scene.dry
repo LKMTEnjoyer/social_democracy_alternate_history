@@ -365,7 +365,6 @@ for (let i = 0; i < 35; i++) {
         var party_support = 0;
         for (var c of Q.classes) {
             party_support += state[c]*Q[c+'_'+party+'_normalized'];
-            } 
         }
         Q[party + '_support'] = party_support;
         total_support += party_support; 
