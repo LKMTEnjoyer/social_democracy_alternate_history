@@ -387,7 +387,7 @@ const largestIndexes = state_votes.map(votes => {
 
 console.log(largestIndexes);
 
-for (let i = 0; i < 35; i++) {
+for (let i = 1; i < 36; i++) {
     const identifier = "district" + String(i);
     const path = document.getElementById(identifier);
     path.setAttribute("fill", partyColors[largestIndexes[i]]); 
