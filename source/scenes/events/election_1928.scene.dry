@@ -378,7 +378,7 @@ for (let i = 0; i < 35; i++) {
 }
 
 
-const partyColors = ['#E3000F', '#8B0000', '#DCCA4A', '#000', '#D5AC27', '#3f7bc1', '#954B00', '#a0a0a0', '#c40000']
+const partyColors = ['#E3000F', '#8B0000', '#000', '#DCCA4A', '#D5AC27', '#3f7bc1', '#954B00', '#a0a0a0', '#c40000']
 
 const largestIndexes = state_votes.map(votes => {
     const maxVote = Math.max(...votes);
