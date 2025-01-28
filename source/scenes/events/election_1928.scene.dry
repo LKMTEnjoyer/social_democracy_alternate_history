@@ -508,6 +508,8 @@ go-to: coalition_menu
 </svg>
 </div>
 
+{!console.log("test");!}
+
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
