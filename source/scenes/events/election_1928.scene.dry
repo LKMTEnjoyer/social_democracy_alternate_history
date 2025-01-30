@@ -390,19 +390,34 @@ for (let i = 0; i < 35; i++) {
 }
 
 
-const partyColors = ['#E3000F', '#8B0000', '#000', '#DCCA4A', '#D5AC27', '#3f7bc1', '#954B00', '#a0a0a0', '#c40000']
+const partyColors_old = ['#E3000F', '#8B0000', '#000', '#DCCA4A', '#D5AC27', '#3f7bc1', '#954B00', '#a0a0a0', '#c40000']
+
+const partyColors = [[227, 0, 15], [139, 0, 0], [0, 0, 0], [220, 202, 74], [213, 172, 39], [63, 123, 193], [149, 75, 0], [160, 160, 160], [196, 0, 0]]
 
 const largestIndexes = state_votes.map(votes => {
     const maxVote = Math.max(...votes);
     return votes.indexOf(maxVote);
 });
+// look chatgpt told me this would work
+const secondLargestIndexes = state_votes.map(votes => {
+    const maxVote = Math.max(...votes);
+    const maxIndex = votes.indexOf(maxVote);
+    votes.splice(maxIndex, 1); 
+    const secondMaxVote = Math.max(...votes);
+    return votes.indexOf(secondMaxVote);
+});
 
-console.log(largestIndexes);
+console.log(secondLargestIndexes);
 
 for (let i = 1; i < 36; i++) {
     const identifier = "district" + String(i);
     const path = document.getElementById(identifier);
-    path.setAttribute("fill", partyColors[largestIndexes[i-1]]); 
+    const final_color = partyColors[largestIndexes[i-1]];
+    // if the 1st place and 2nd place are very similar this should equal 0.5
+    // if they are very different this should equal 1
+    const saturation_in = Math.min(1,0.5+(state_votes[i-1][largestIndexes[i-1]]-state_votes[i-1][secondLargestIndexes[i-1]])/10);
+    
+    path.setAttribute("fill", rgbToHex(saturation(final_color, saturation_in))); 
 }
 
 console.log(state_votes);

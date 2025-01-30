@@ -15,3 +15,26 @@ function clear_saves() {
     dendryUI.showSaveSlots();
     }
 }
+
+function saturation(i,v) { 
+    var min = $.inArray(Math.min.apply(this, i), i),
+        max = $.inArray(Math.max.apply(this, i), i),
+        mid = parseInt([0, 1, 2].filter(function (j) {return Array(min, max).indexOf(j) < 0;})),
+        r = (i[max] - i[mid]) / (i[mid] - i[min]), 
+        o = [];
+    if (min !== max) {
+        o[max] = Math.round(i[max]);
+        o[min] = Math.round(i[max] * (1 - v));
+        o[mid] = Math.round(o[max] / (r + 1) * v + i[max] * (1 - v));
+    }
+    return o;
+}
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+  
+function rgbToHex(r, g, b) {
+return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
