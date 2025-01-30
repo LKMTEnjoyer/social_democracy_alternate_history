@@ -31,7 +31,12 @@ function saturation(i,v) {
 }
 
 function rgbToHex(rgb) {
-    const [r_t, g_t, b_t] = rgb.map(value => Math.max(0, Math.min(255, value)));
+    const [r, g, b] = rgb.map(value => Math.max(0, Math.min(255, value)));
     
-    return `#${r_t.toString(16).padStart(2, '0')}${g_t.toString(16).padStart(2, '0')}${b_t.toString(16).padStart(2, '0')}`;
+    const toHex = (num) => {
+        const hex = num.toString(16);
+        return hex.length === 1 ? '0' + hex : hex; 
+    };
+    
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
