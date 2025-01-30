@@ -362,7 +362,7 @@ for (let i = 0; i < 35; i++) {
     // literally no basis for this lmao 
     // totally unplayable
     if (state_d.catholics >= 30) {
-        var catholics_multiplier = state_d.catholics ** 0.33;
+        var catholics_multiplier = state_d.catholics ** 0.5;
         state_d.catholics += catholics_multiplier;
         state_d.rural *= (100 - catholics_multiplier) / 100;
         state_d.workers *= (100 - catholics_multiplier) / 100;
