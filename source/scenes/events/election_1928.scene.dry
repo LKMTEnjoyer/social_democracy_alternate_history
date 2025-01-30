@@ -406,6 +406,9 @@ const secondLargestIndexes = state_votes.map(votes => {
     const secondMaxVote = Math.max(...votes);
     return votes.indexOf(secondMaxVote);
 });
+console.log(state_votes);
+
+console.log(largestIndexes);
 
 console.log(secondLargestIndexes);
 
