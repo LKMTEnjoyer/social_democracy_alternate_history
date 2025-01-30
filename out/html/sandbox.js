@@ -30,8 +30,8 @@ function saturation(i,v) {
     return o;
 }
 
-function componentToHex(c) {
-    var hex = c.toString(16);
+function componentToHex(input) {
+    var hex = input.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
   
