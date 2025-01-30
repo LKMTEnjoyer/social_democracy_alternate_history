@@ -29,12 +29,9 @@ function saturation(i,v) {
     }
     return o;
 }
-
-function componentToHex(input) {
-    var hex = input.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-}
-  
-function rgbToHex(r, g, b) {
-return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+\
+function rgbToHex(rgb) {
+    const [r, g, b] = rgb.map(value => Math.max(0, Math.min(255, value)));
+    
+    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
 }
