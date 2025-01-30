@@ -32,7 +32,16 @@ function saturation(i,v) {
 
 function rgbToHex(rgb) {
     const [r, g, b] = rgb.map(value => Math.max(0, Math.min(255, value)));
+
     
+    const hex = r.toString(16);
+    const out_r = (hex.length === 1 ? '0' + hex : hex); 
+
+    const hex = g.toString(16);
+    const out_g = (hex.length === 1 ? '0' + hex : hex); 
+
+    const hex = b.toString(16);
+    const out_b = (hex.length === 1 ? '0' + hex : hex); 
     
-    return `#${(r)}${(g)}${(b)}`;
+    return `#${out_r}${out_g}${out_b}`;
 }
