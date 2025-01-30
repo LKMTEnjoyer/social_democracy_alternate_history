@@ -29,7 +29,7 @@ function saturation(i,v) {
     }
     return o;
 }
-\
+
 function rgbToHex(rgb) {
     const [r, g, b] = rgb.map(value => Math.max(0, Math.min(255, value)));
     
