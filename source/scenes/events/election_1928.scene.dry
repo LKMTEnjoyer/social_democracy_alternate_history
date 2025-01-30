@@ -361,14 +361,14 @@ for (let i = 0; i < 35; i++) {
     state_d["unemployed"] = state_classes[5];
     // literally no basis for this lmao 
     // totally unplayable
-    if (state_d.catholics >= 15) {
-        var catholics_multiplier = state_d.catholics ** 0.5;
-        state_d.catholics += catholics_multiplier * 100;
-        state_d.rural *= (1 - catholics_multiplier) / 100;
-        state_d.workers *= (1 - catholics_multiplier) / 100;
-        state_d.new_middle *= (1 - catholics_multiplier) / 100;
-        state_d.old_middle *= (1 - catholics_multiplier) / 100;
-        state_d.unemployed *= (1 - catholics_multiplier) / 100;
+    if (state_d.catholics >= 30) {
+        var catholics_multiplier = state_d.catholics ** 0.33;
+        state_d.catholics += catholics_multiplier;
+        state_d.rural *= (100 - catholics_multiplier) / 100;
+        state_d.workers *= (100 - catholics_multiplier) / 100;
+        state_d.new_middle *= (100 - catholics_multiplier) / 100;
+        state_d.old_middle *= (100  - catholics_multiplier) / 100;
+        state_d.unemployed *= (100 - catholics_multiplier) / 100;
     }
 
 
