@@ -114,6 +114,16 @@
       window.dendryUI.saveSettings();
   };
 
+  window.enableDecimals = function() {
+    dendryUI.dendryEngine.state.qualities.use_decimals = 1;
+    window.updateSidebar();
+  };
+
+  window.disableDecimals = function() {
+    dendryUI.dendryEngine.state.qualities.use_decimals = 0;
+    window.updateSidebar();
+  };
+
   // populates the checkboxes in the options view
   window.populateOptions = function() {
     var disable_bg = window.dendryUI.disable_bg;
