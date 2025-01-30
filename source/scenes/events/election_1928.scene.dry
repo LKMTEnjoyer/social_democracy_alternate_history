@@ -361,7 +361,7 @@ for (let i = 0; i < 35; i++) {
     state_d["unemployed"] = state_classes[5];
     // literally no basis for this lmao 
     // totally unplayable
-    if (state_d.catholics >= 30) {
+    if (state_d.catholics >= 25) {
         var catholics_multiplier = state_d.catholics ** 0.5;
         state_d.catholics += catholics_multiplier;
         state_d.rural *= (100 - catholics_multiplier) / 100;
