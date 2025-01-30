@@ -422,17 +422,13 @@ for (let i = 1; i < 36; i++) {
     final_color = saturation(final_color, saturation_in);
 
     const [r, g, b] = final_color.map(value => Math.max(0, Math.min(255, value)));
-   
-    const hex = r.toString(16);
-    const out_r = (hex.length === 1 ? '0' + hex : hex); 
+    
+    console.log(r)
+    console.log(g)
+    console.log(b)
 
-    const hex = g.toString(16);
-    const out_g = (hex.length === 1 ? '0' + hex : hex); 
 
-    const hex = b.toString(16);
-    const out_b = (hex.length === 1 ? '0' + hex : hex); 
-
-    path.setAttribute("fill", `#${out_r}${out_g}${out_b}`); 
+    path.setAttribute("fill", "#000"); 
 }
 
 console.log(state_votes);
