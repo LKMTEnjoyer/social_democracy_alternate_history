@@ -419,8 +419,20 @@ for (let i = 1; i < 36; i++) {
     // if the 1st place and 2nd place are very similar this should equal 0.5
     // if they are very different this should equal 1
     const saturation_in = Math.min(1,0.5+(state_votes[i-1][largestIndexes[i-1]]-state_votes[i-1][secondLargestIndexes[i-1]])/10);
-    
-    path.setAttribute("fill", rgbToHex(saturation(final_color, saturation_in))); 
+    final_color = saturation(final_color, saturation_in);
+
+    const [r, g, b] = final_color.map(value => Math.max(0, Math.min(255, value)));
+   
+    const hex = r.toString(16);
+    const out_r = (hex.length === 1 ? '0' + hex : hex); 
+
+    const hex = g.toString(16);
+    const out_g = (hex.length === 1 ? '0' + hex : hex); 
+
+    const hex = b.toString(16);
+    const out_b = (hex.length === 1 ? '0' + hex : hex); 
+
+    path.setAttribute("fill", `#${out_r}${out_g}${out_b}`); 
 }
 
 console.log(state_votes);
