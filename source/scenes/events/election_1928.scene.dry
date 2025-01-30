@@ -437,6 +437,7 @@ for (let i = 1; i < 36; i++) {
     const identifier = "district" + String(i);
     const path = document.getElementById(identifier);
     const final_color = partyColors[largestIndexes[i-1]];
+    console.log(final_color);
     // if the 1st place and 2nd place are very similar this should equal 0.5
     // if they are very different this should equal 1
     const saturation_in = Math.min(1,0.5+(state_votes[i-1][largestIndexes[i-1]]-state_votes[i-1][secondLargestIndexes[i-1]])/10);
