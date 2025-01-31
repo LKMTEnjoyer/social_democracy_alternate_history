@@ -615,6 +615,7 @@ go-to: coalition_menu
 [? if anti_democratic_coalition >= 50 : Together, the anti-democratic KPD, DNVP, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
 @spd_majority_flag
+on-arrival: kpd_coalition = 0; sapd_coalition = 0; ddp_coalition = 0; z_coalition = 0; bvp_coalition = 0; dvp_coalition = 0; others_coalition = 0 
 go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 
 @coalition_menu
@@ -689,6 +690,21 @@ go-to: kpd_coalition_success
 on-arrival: kpd_coalition = 1; kpd_relation += 10; coalition_size += kpd_r
 
 Surprisingly, the KPD accepts our proposal without appointing Thälmann as chancellor. 
+
+- @coalition_menu
+- @finished_coalition
+
+@invite_sapd
+title: Invite the SAPD into our coalition.
+subtitle: [? if kpd_coalition = 1 and z_coalition = 1: The SAPD will enter into the popular front. ?]  [? if kpd_coalition = 1 and z_coalition = 0: The SAPD will enter into the coalition. ?] [? if kpd_coalition = 0 and z_coalition = 1: The SAPD will enter a toleration agreement with the coalition. ?]
+view-if: sapd_formed = 1
+unavailable-if: [? if kpd_coalition = 0 and kpd_relation < 30: The SAPD advocates for a popular front, so it will not tolerate our coalition. ?] 
+choose-if: (kpd_coalition = 0 and kpd_relation >= 30) or kpd_coalition = 1
+on-arrival: sapd_coalition = 1 if kpd_coalition = 1; sapd_coalition = 2 if kpd_coalition = 0; coalition_size += sapd_r; 
+
+We have invited the SAPD to the coalition or to toleration
+
+todo: make sapd switch to toleration if we enter in a weimar after sapd is chosen
 
 - @coalition_menu
 - @finished_coalition
