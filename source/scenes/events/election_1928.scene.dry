@@ -170,6 +170,23 @@ Q.reichswehr_goal_completed = 0;
 
 Q.strike_term_seen = 0;
 
+// stuff for dynamic coalitions
+Q.chancellor_promise = "Empty";
+// will get mad when you do anything 
+Q.conservative_party = 0;
+// will get mad when you do socialism
+Q.bourgeois_party = 0;
+// will get mad from austerity
+Q.left_party = 0;
+// will call a vonc when you do religious schools
+Q.religious_party = 0;
+// will get mad from social reforms
+// womens rights, homosexual rights, etc
+Q.non_progressive_party = 0;
+
+Q.coalition_size = Q.spd_r;
+
+
 Q.z_minus_bvp_r = Q.z_r - 3;
 
 // understanding the enemy
@@ -593,23 +610,188 @@ go-to: coalition_menu
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +]% {!</td></tr>!}
 {!</table>!}
 
-**Potential coalitions:**
-
-Weimar Coalition (SPD + Z + [+ ddp_name +]): [+ weimar_coalition +]%
-
-Grand Coalition (SPD + Z + BVP + [+ ddp_name +] + DVP): [+ grand_coalition +]%
-
-Bourgeois Coalition (Z + BVP + [+ ddp_name +] + DVP + Others): [+ bourgeois_coalition +]%
-
-Right-wing Coalition (Z + BVP + DVP + Others + DNVP): [+ right_coalition +]%
-
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
 [? if anti_democratic_coalition >= 50 : Together, the anti-democratic KPD, DNVP, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
-There are some potential coalition arrangements.
+@spd_majority_flag
+go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 
 @coalition_menu
+
+We can try to invite other parties to our coalition.
+
+- @invite_kpd
+- @invite_sapd
+- @invite_ddp
+- @invite_zentrum
+- @invite_bvp
+- @invite_dvp
+- @invite_others
+- @finalize_coalition
+- @spd_majority
+- @far_right_coalition
+- @right_coalition
+
+@invite_kpd
+title: Can we invite the KPD into our coalition?
+unavailable-subtitle: [? if kpd_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?][? if z_coalition = 1 or ddp_coalition = 1: The KPD is not friendly enough for a "Popular Front". ?]
+view-if: kpd_relation >= 40 and kpd_coalition = 0
+choose-if: ((z_coalition = 0 and ddp_coalition = 0) and (kpd_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40))) or (z_coalition = 1 and ((kpd_relation >= 65 and kpd_party_leader == "Thälmann") or (kpd_relation >= 45 and kpd_party_leader == "Conciliators") or (z_party_leader == "Joos" and kpd_party_leader == "Conciliators" and kpd_relation >= 30))) and communist_coalition >= 3
+
+The KPD has never participated in a national government before, and even some members of our own party are skeptical of such an arrangement. The most likely arrangement is the KPD tolerating a SPD coalition without taking any ministry positions.
+
+The far-right might attempt a coup, if such a coalition were formed.
+
+- @kpd_impossible: This is impossible.
+- @kpd_possible: This could be possible.
+
+@kpd_impossible
+go-to: coalition_menu
+
+A coalition with the KPD is impossible.
+
+@kpd_possible
+
+The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for joining a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
+
+- @thalmann_chancellor_promise: Promise to appoint Thälmann as chancellor.
+- @kpd_resources
+- @kpd_relations
+- @coalition_menu: We will not invite the KPD to our coalition.
+
+@thalmann_chancellor_promise
+choose-if: president == "Braun" and reformist_strength + neorevisionist_strength < left_strength and chancellor_promise = "Empty" and z_coalition = 0
+unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if reformist_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?] [? if z_coalition = 1 or ddp_coalition = 1: We cannot possibly appoint Thälmann as a chancellor in a popular front. ?]
+on-arrival: chancellor_promise = "Thälmann"; kpd_coalition = 1; coalition_size += kpd_r
+
+We promise the KPD that we will appoint Thälmann as chancellor upon entering government. However, this will make a "Popular Front", a coalition with the KPD and other republican parties essentially impossible. Additionally, it is very likely that the right will launch a coup if Thälmann is appointed.
+
+- @coalition_menu
+- @finished_coalition
+
+@kpd_coalition_resources
+title: Use our resources to smooth things over.
+unavailable-subtitle: Required: 2 resources
+subtitle: -2 resources
+choose-if: resources >= 2
+on-arrival: resources -= 2
+go-to: kpd_coalition_success
+
+@kpd_coalition_relations
+title: Convince the KPD to accept democracy.
+unavailable-subtitle: Our relationships with the KPD are not good enough.
+choose-if: kpd_relation >= 60 or kpd_party_leader == "Conciliators"
+go-to: kpd_coalition_success
+
+
+@kpd_coalition_success
+on-arrival: kpd_coalition = 1; kpd_relation += 10; coalition_size += kpd_r
+
+Surprisingly, the KPD accepts our proposal without appointing Thälmann as chancellor. 
+
+- @coalition_menu
+- @finished_coalition
+
+@invite_zentrum
+title: Invite Zentrum into our coalition.
+subtitle: We have often been in coalitions together.
+unavailable-subtitle: [? if kpd_coalition = 1: Zentrum is not friendly enough for a "Popular Front". ?] [? if (z_relation < 25 and z_partner = "Marx") or (z_relation < 30 and z_party_leader = "Kaas") or (z_relation < 20 and z_party_leader = "Joos"): We do not have adequate relations with Zentrum. ?]
+choose-if: (kpd_coalition = 0 and (z_relation >= 25 or (z_relation >= 30 and z_party_leader = "Kaas") or (z_relation >= 20 and z_party_leader = "Joos")))
+go-to: z_popular_front_invite if kpd_coalition = 1;
+on-arrival: z_coalition = 1 if kpd_coalition = 0; coalition_size += (z_r - 3) if kpd_coalition = 0
+
+We invite Zentrum into our coalition. [? if kpd_coalition = 1: However, the right wing of Zentrum is demanding concessions. ?]
+
+- @coalition_menu
+- @finished_coalition
+
+@z_popular_front_invite
+
+Zentrum is willing to entertain negotiations despite our agreements with the KPD. Of course, conservatives derail the negotiations almost immediately. The right-wing of Zentrum is offended by the prospect of helping Bolsheviks enter government. *Something* must be done to restore balance.
+
+- @z_popular_front_resources
+- @z_popular_front_leadership
+- @z_popular_front_braun
+- @coalition_menu: This is impossible. We must abandon the "Popular Front" for now.
+
+@z_popular_front_resources
+title: Use our resources to smooth things over.
+unavailable-subtitle: Required: 2 resources
+subtitle: -2 resources
+choose-if: resources >= 2
+on-arrival: resources -= 2
+go-to: z_popular_front_success
+
+@z_popular_front_leadership
+title: Use our connections with the Zentrum leadership.
+subtitle: [? if kpd_party_leader == "Joos" : Joos is more amenable to a coalition with the KPD. ?]
+unavailable-subtitle: Our relationship with Zentrum is not high enough.
+choose-if: ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators") or (z_party_leader == "Joos" and kpd_party_leader == "Conciliators" and z_relation >= 30)) 
+go-to: z_popular_front_success
+
+@popular_front_braun
+title: Use pressure from President Braun to convince Zentrum to cooperate.
+view-if: president == "Braun"
+go-to: z_popular_front_success
+
+@z_popular_front_success
+on-arrival: z_coalition = 1; coalition_size += z_r - 3
+
+Surprisingly, Zentrum accepts our proposal of a popular front. 
+
+- @coalition_menu
+- @finished_coalition
+
+@invite_ddp
+title: Invite the [+ ddp_name +] to our coalition.
+unavailable-subtitle: [? if kpd_coalition = 1: The DDP is not friendly enough for a "Popular Front". ?] We do not have adequate relations with the DDP.
+choose-if: ((ddp_dstp_seen = 0 or kpd_coalition = 0) and ddp_relation >= 25) or ((ddp_dstp_seen = 0 and kpd_coalition = 0) and ddp_relation >= 20) or (ddp_relation >= 30)
+on-arrival: ddp_coalition = 1; coalition_size += ddp_r
+
+We have invited the DDP to our coalition.
+
+- @coalition_menu
+- @finished_coalition
+
+@invite_dvp
+title: Invite the DVP to our coalition.
+unavailable-subtitle: [? if kpd_coalition = 1: The DDP would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The DVP would never join a coalition with the SAPD. ?] We do not have adequate relations with the DDP.
+choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (dvp_relation > 40)
+on-arrival: dvp_coalition = 1; coalition_size += dvp_r
+
+We have invited the DVP to our coalition.
+
+- @coalition_menu
+- @finished_coalition
+
+@invite_bvp
+title: Invite the DVP to our coalition.
+unavailable-subtitle: [? if kpd_coalition = 1: The BVP would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The BVP would never join a coalition with the SAPD. ?] We do not have adequate relations with the BVP.
+choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (z_relation > 50)
+on-arrival: bvp_coalition = 1; coalition_size += 3
+
+- @coalition_menu
+- @finished_coalition
+
+@invite_others
+title: Invite the minor parties to our coalition.
+unavailable-subtitle: [? if kpd_coalition = 1: The minor parties would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The minor parties would never join a coalition with the SAPD. ?] We do not have adequate relations with the minor parties.
+choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (z_relation > 50)
+on-arrival: others_coalition = 1; coalition_size += other_r
+
+We have invited the minor conservative parties to our coalition.
+
+- @coalition_menu
+- @finished_coalition
+
+@finished_coalition
+title: We have finalized our coalition agreements.
+unavailable-subtitle: We do not have a majority in the Reichstag
+view-if: coalition_size >= 40;
+choose-if: coalition_size >= 50;
+
+we have a majority etc etc I'm getting tired
 
 - @spd_majority
 - @weimar_coalition
@@ -622,9 +804,6 @@ There are some potential coalition arrangements.
 - @left_coalition
 - @popular_front_coalition
 - @right_coalition
-
-# TODO: black-brown coalition
-
 
 @popular_front_coalition
 title: A new "Popular Front" coalition?
