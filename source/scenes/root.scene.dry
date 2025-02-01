@@ -5,6 +5,7 @@ go-to: post_event if started = 1; start_menu if started = 0
 @start_menu
 new-page: true
 on-arrival: {!
+Q.coalition_type = "";
 Q.young_plan_outcome = 2;
 Q.sa_growth = 0;
 Q.sh_growth = 0;
