@@ -654,8 +654,8 @@ A coalition with the KPD is impossible.
 The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for joining a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
 
 - @thalmann_chancellor_promise: Promise to appoint Thälmann as chancellor.
-- @kpd_resources
-- @kpd_relations
+- @kpd_coalition_resources
+- @kpd_coalition_relations
 - @coalition_menu: We will not invite the KPD to our coalition.
 
 @thalmann_chancellor_promise
