@@ -795,8 +795,8 @@ We have invited the minor conservative parties to our coalition.
 @finished_coalition
 title: We have finalized our coalition agreements.
 unavailable-subtitle: We do not have a majority in the Reichstag.
-view-if: coalition_size >= 40;
-choose-if: coalition_size >= 50;
+view-if: coalition_size >= 40
+choose-if: coalition_size >= 50
 
 we have a majority etc etc I'm getting tired
 
