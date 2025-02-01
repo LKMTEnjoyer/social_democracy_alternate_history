@@ -708,7 +708,15 @@ We have invited the SAPD to the coalition or to toleration
 
 todo make sapd switch to toleration if we enter in a weimar after sapd is chosen
 
+- @coalition_menu
+- @finished_coalition
+
 @invite_zentrum
+title: I HAVE NO IDEA WHAT I'M DOING
+
+- @test
+
+@test
 title: Invite Zentrum into our coalition.
 subtitle: We have often been in coalitions together.
 unavailable-subtitle: [? if kpd_coalition = 1: Zentrum is not friendly enough for a "Popular Front". ?] [? if (z_relation < 25 and z_partner = "Marx") or (z_relation < 30 and z_party_leader = "Kaas") or (z_relation < 20 and z_party_leader = "Joos"): We do not have adequate relations with Zentrum. ?]
