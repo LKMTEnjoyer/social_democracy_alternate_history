@@ -708,10 +708,6 @@ We have invited the SAPD to the coalition or to toleration
 
 todo make sapd switch to toleration if we enter in a weimar after sapd is chosen
 
-- @coalition_menu
-- @finished_coalition
-
-
 @invite_zentrum
 title: Invite Zentrum into our coalition.
 subtitle: We have often been in coalitions together.
