@@ -616,41 +616,6 @@ go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 @coalition_menu
 title: Invite parties to our coalition.
 on-arrival:{!
-if (kpd_coalition == 1 && z_coalition == 0 && ddp_coalition == 0) {
-    // if KPD and not in a coalition with the bourgeoisie parties it's a left front
-    Q.coalition_type = "Left front";
-} else if (kpd_coalition == 1 && z_coalition == 1) {
-    // if KPD and in coalition with Zentrum it's a popular front
-    Q.coalition_type = "Popular front";
-} else if (kpd_coalition == 1 && ddp_coalition = 1) {
-    // if KPD and in coalition with DDP it's a progressive coalition
-    // z_coalition = 0 is implied
-    Q.coalition_type = "Progressive coalition";
-} else if (ddp_coalition == 1 && z_coalition == 0) {
-    // DDP + SPD + (SAPD possibly) is social liberal
-    Q.coalition_type = "Social-liberal coalition";
-} else if (z_coalition == 1 && others_coalition == 0 && bvp_coalition == 0 && dvp_coalition == 0) {
-    // Any coalition with Z and not KPD and not any of the conservative parties is a Weimar
-    // this means I don't have to think of a name for SPD-Z :trolle:
-    Q.coalition_type = "Weimar coalition";
-} else if (bvp_coalition == 1 || dvp_coalition == 1) {
-    // any coalition with the conservative parties except the minor ones is a grand coalition
-    Q.coalition_type = "Grand coalition";
-} else if (others_coalition == 1) {
-    // if you coalition with the minor parties it's a new grand coalition
-    Q.coalition_type = "New Grand coalition";
-} 
-// note that KPD/SAPD can never be in a coalition with anything right of Zentrum, and vice versa
-// religious parties: Z, BVP
-// will VONC if you do religious schools
-// conservative parties: BVP, DVP, Others
-// will get mad at any kind of socialism
-// socialist parties: KPD, SAPD
-// will get mad at austerity and anti-worker policies
-// bourgeoisie parties: DDP, Z, BVP, DVP, Others
-// will get mad at some kinds of socialism (nationalization)
-// non-progressive parties Z, BVP, DVP, Others
-// will get mad at social reforms
 !}
 
 [? if coalition_size == spd_r : We can try to invite other parties to our coalition. ?]
