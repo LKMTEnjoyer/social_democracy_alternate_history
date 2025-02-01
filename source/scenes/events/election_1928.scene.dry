@@ -614,6 +614,7 @@ on-arrival: kpd_coalition = 0; sapd_coalition = 0; ddp_coalition = 0; z_coalitio
 go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 
 @coalition_menu
+title: Invite parties to our coalition.
 
 We can try to invite other parties to our coalition.
 
