@@ -910,10 +910,10 @@ we will coalition with them because we don't have a majority otherwise
 
 coalition with them will lower our leverage
 
-- @use_resources
+- @others_use_resources
 - @promise_unity
 
-@use_resources
+@others_use_resources
 title: Use our resources to smooth over the creation of a coalition.
 subtitle: -2 resources
 unavailable-subtitle: Not enough resources (need 2).
