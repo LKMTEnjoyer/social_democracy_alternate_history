@@ -640,7 +640,6 @@ if (kpd_coalition == 1 && z_coalition == 0 && ddp_coalition == 0) {
     // if you coalition with the minor parties it's a new grand coalition
     Q.coalition_type = "New Grand coalition";
 } 
-
 // note that KPD/SAPD can never be in a coalition with anything right of Zentrum, and vice versa
 // religious parties: Z, BVP
 // will VONC if you do religious schools
@@ -652,13 +651,11 @@ if (kpd_coalition == 1 && z_coalition == 0 && ddp_coalition == 0) {
 // will get mad at some kinds of socialism (nationalization)
 // non-progressive parties Z, BVP, DVP, Others
 // will get mad at social reforms
-
 !}
 
-[? if coalition_size = spd_r : We can try to invite other parties to our coalition. ?]
+[? if coalition_size == spd_r : We can try to invite other parties to our coalition. ?]
 
 [? if coalition_size > spd_r : Current coalition: [+ coalition_type +] [? if kpd_coalition : KPD + ?] [? if sapd_coalition = 1 : SAPD + ?] SPD [? if ddp_coalition : + DDP ?] [? if z_coalition : + Z ?] [? if dvp_coalition : + DVP ?] [? if bvp_coalition : + BVP ?] [? if others_coalition : + Others ?] [? if sapd_coalition = 2 : + SAPD toleration ?] ([+ coalition_size +]%) ?]
-
 
 - @invite_kpd
 - @remove_kpd
