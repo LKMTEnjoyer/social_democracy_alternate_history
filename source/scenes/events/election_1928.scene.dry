@@ -679,7 +679,7 @@ if (Q.kpd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0) {
 - @invite_others
 - @remove_others
 - @finished_coalition
-- @spd_majority
+- @spd_majority: Actually, we will form a government by ourselves.
 - @far_right_coalition
 - @right_coalition
 
@@ -954,20 +954,19 @@ title: We have finalized our coalition agreements.
 unavailable-subtitle: We do not have a majority in the Reichstag.
 view-if: coalition_size >= 40
 choose-if: coalition_size >= 50
+on-arrival:{!
+Q.coalition_type_temp = Q.coalition_type.toLowerCase();
+!}
 
 we have a majority etc etc I'm getting tired
 
-- @spd_majority
-- @weimar_coalition
-- @grand_coalition
-- @new_grand_coalition
-- @unity_government
-- @far_right_coalition
-- @no_majority
-- @brauns_dilemma
-- @left_coalition
-- @popular_front_coalition
-- @right_coalition
+- @coalition_menu: Actually, we will keep negotiating with the other parties.
+- @spd_majority: Actually, we will form a government by ourselves.
+- @form_government: Form the [+ coalition_type_temp +]!
+
+@form_government
+
+so basically do stuff to figure out what government you get in
 
 @popular_front_coalition
 title: A new "Popular Front" coalition?
@@ -1039,7 +1038,7 @@ The KPD has taken an abstentionist position with regards to ministries. They cla
 - @ministries: First, we must select our ministries.
 
 @popular_front_civil_war
-on-arrival: kpd_relation = 80; reichswehr_loyalty += 0.25;
+on-arrival: kpd_relation = 80; reichswehr_loyalty += 0.25; sh_militancy -= 0.05
 
 In response to the KPD's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
 
