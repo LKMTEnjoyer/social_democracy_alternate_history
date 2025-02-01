@@ -622,6 +622,8 @@ go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 
 We can try to invite other parties to our coalition.
 
+[? if coalition_size > spd_r :Current coalition: [? if kpd_coalition :KPD + ?] [? if sapd_coalition = 1 : SAPD + ?] SPD [? if ddp_coalition : + DDP ] [? if z_coalition : + Z ?] [? if dvp_coalition : + DVP ?] [ if bvp_coalition : + BVP ] [ if others_coalition : + Others ] [ if sapd_coalition = 2 : + SAPD toleration ] [+ coalition_size +] ?]
+
 - @invite_kpd
 - @invite_sapd
 - @invite_ddp
@@ -746,7 +748,7 @@ unavailable-subtitle: Our relationship with Zentrum is not high enough.
 choose-if: ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators") or (z_party_leader == "Joos" and kpd_party_leader == "Conciliators" and z_relation >= 30)) 
 go-to: z_popular_front_success
 
-@popular_front_braun
+@z_popular_front_braun
 title: Use pressure from President Braun to convince Zentrum to cooperate.
 view-if: president == "Braun"
 go-to: z_popular_front_success
