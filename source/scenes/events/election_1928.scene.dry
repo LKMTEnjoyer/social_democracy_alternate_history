@@ -704,10 +704,13 @@ unavailable-subtitle: [? if kpd_coalition = 0 and kpd_relation < 30 : The SAPD a
 choose-if: (kpd_coalition = 0 and kpd_relation >= 30) or kpd_coalition = 1
 on-arrival: sapd_coalition = 1 if kpd_coalition = 1; sapd_coalition = 2 if kpd_coalition = 0; coalition_size += sapd_r; 
 
-test
+We have invited the SAPD to the coalition or to toleration
+
+todo make sapd switch to toleration if we enter in a weimar after sapd is chosen
 
 - @coalition_menu
 - @finished_coalition
+
 
 @invite_zentrum
 title: Invite Zentrum into our coalition.
