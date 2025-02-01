@@ -182,6 +182,13 @@ Q.religious_party = 0;
 // will get mad from social reforms
 // womens rights, homosexual rights, etc
 Q.non_progressive_party = 0;
+Q.z_coalition = 0;
+Q.ddp_coalition = 0;
+Q.kpd_coalition = 0;
+Q.dvp_coalition = 0;
+Q.bvp_coalition = 0;
+Q.sapd_coalition = 0;
+Q.others_coalition = 0;
 
 Q.coalition_size = Q.spd_r;
 
@@ -655,7 +662,7 @@ if (Q.kpd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0) {
 
 [? if coalition_size == spd_r : We can try to invite other parties to our coalition. ?]
 
-[? if coalition_size > spd_r : Current coalition: [+ coalition_type +] [? if kpd_coalition : KPD + ?] [? if sapd_coalition = 1 : SAPD + ?] SPD [? if ddp_coalition : + DDP ?] [? if z_coalition : + Z ?] [? if dvp_coalition : + DVP ?] [? if bvp_coalition : + BVP ?] [? if others_coalition : + Others ?] [? if sapd_coalition = 2 : + SAPD toleration ?] ([+ coalition_size +]%) ?]
+[? if coalition_size > spd_r : Current coalition: [+ coalition_type +]<br>[? if kpd_coalition : KPD + ?] [? if sapd_coalition = 1 : SAPD + ?] SPD [? if ddp_coalition : + DDP ?] [? if z_coalition : + Z ?] [? if dvp_coalition : + DVP ?] [? if bvp_coalition : + BVP ?] [? if others_coalition : + Others ?] [? if sapd_coalition = 2 : + SAPD toleration ?] ([+ coalition_size +]%) ?]
 
 - @invite_kpd
 - @remove_kpd
