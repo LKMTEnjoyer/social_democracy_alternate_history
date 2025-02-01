@@ -714,11 +714,9 @@ The KPD is still very reluctant to join a coalition, despite grassroots friendli
 choose-if: president == "Braun" and reformist_strength + neorevisionist_strength < left_strength and chancellor_promise = "Empty" and z_coalition = 0
 unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if reformist_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?] [? if z_coalition = 1 or ddp_coalition = 1: We cannot possibly appoint Thälmann as a chancellor in a popular front. ?]
 on-arrival: chancellor_promise = "Thälmann"; kpd_coalition = 1; coalition_size += kpd_r
+go-to: coalition_menu
 
 We promise the KPD that we will appoint Thälmann as chancellor upon entering government. However, this will make a "Popular Front", a coalition with the KPD and other republican parties essentially impossible. Additionally, it is very likely that the right will launch a coup if Thälmann is appointed.
-
-- @coalition_menu
-- @finished_coalition
 
 @kpd_coalition_resources
 title: Use our resources to smooth things over.
@@ -736,22 +734,17 @@ go-to: kpd_coalition_success
 
 @kpd_coalition_success
 on-arrival: kpd_coalition = 1; kpd_relation += 10; coalition_size += kpd_r
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 Surprisingly, the KPD accepts our proposal without appointing Thälmann as chancellor. 
-
-- @coalition_menu
-- @finished_coalition
 
 @remove_kpd
 title: Remove the KPD from our coalition.
 view-if: kpd_coalition = 1
 on-arrival: kpd_coalition = 0; coalition_size -= kpd_r 
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @invite_sapd
 title: Invite the SAPD into our coalition.
@@ -760,24 +753,19 @@ view-if: sapd_formed = 1 and sapd_coalition = 0
 unavailable-subtitle: [? if kpd_coalition = 0 and kpd_relation < 30 : The SAPD advocates for a popular front, so it will not tolerate our coalition. ?] 
 choose-if: (kpd_coalition = 0 and kpd_relation >= 30) or kpd_coalition = 1
 on-arrival: sapd_coalition = 1 if kpd_coalition = 1; sapd_coalition = 2 if kpd_coalition = 0; coalition_size += sapd_r; 
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 We have invited the SAPD to the coalition or to toleration
 
 todo make sapd switch to toleration if we enter in a weimar after sapd is chosen
 
-- @coalition_menu
-- @finished_coalition
-
 @remove_sapd
 title: Remove the SAPD from our coalition.
 view-if: sapd_coalition = 1
 on-arrival: sapd_coalition = 0; coalition_size -= sapd_r 
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @invite_zentrum
 title: Invite Zentrum into our coalition.
@@ -786,12 +774,9 @@ unavailable-subtitle: [? if kpd_coalition = 1: Zentrum is not friendly enough fo
 view-if: z_coalition = 0
 choose-if: kpd_coalition = 0 and (z_relation >= 25 or (z_relation >= 30 and z_party_leader = "Kaas") or (z_relation >= 20 and z_party_leader = "Joos"))
 on-arrival: z_coalition = 1 if kpd_coalition = 0; coalition_size += z_r if kpd_coalition = 0; coalition_size -= 3 if kpd_coalition = 0
-go-to: z_popular_front_invite if kpd_coalition == 1; coalition_menu if coalition_size < 50 and kpd_coalition = 0
+go-to: z_popular_front_invite if kpd_coalition == 1; coalition_menu if and kpd_coalition = 0
 
 We invite Zentrum into our coalition. [? if kpd_coalition = 1: However, the right wing of Zentrum is demanding concessions. ?]
-
-- @coalition_menu
-- @finished_coalition
 
 @z_popular_front_invite
 
@@ -824,22 +809,17 @@ go-to: z_popular_front_success
 
 @z_popular_front_success
 on-arrival: z_coalition = 1; coalition_size += (z_r - 3)
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 Surprisingly, Zentrum accepts our proposal of a popular front. 
-
-- @coalition_menu
-- @finished_coalition
 
 @remove_zentrum
 title: Remove Zentrum from our coalition.
 view-if: z_coalition = 1
 on-arrival: z_coalition = 0; coalition_size -= (z_r - 3)
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @invite_ddp
 title: Invite the [+ ddp_name +] to our coalition.
@@ -847,22 +827,17 @@ unavailable-subtitle: [? if kpd_coalition = 1: The DDP is not friendly enough fo
 view-if: ddp_coalition = 0
 choose-if: ((ddp_dstp_seen = 0 or kpd_coalition = 0) and ddp_relation >= 25) or ((ddp_dstp_seen = 0 and kpd_coalition = 0) and ddp_relation >= 20) or (ddp_relation >= 30)
 on-arrival: ddp_coalition = 1; coalition_size += ddp_r
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 We have invited the DDP to our coalition.
-
-- @coalition_menu
-- @finished_coalition
 
 @remove_ddp
 title: Remove the DDP from our coalition.
 view-if: ddp_coalition = 1
 on-arrival: ddp_coalition = 0; coalition_size -= ddp_r
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @invite_dvp
 title: Invite the DVP to our coalition.
@@ -870,22 +845,17 @@ view-if: dvp_coalition = 0
 unavailable-subtitle: [? if kpd_coalition = 1: The DVP would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The DVP would never join a coalition with the SAPD. ?] [? if dvp_relation < 40: We do not have adequate relations with the DVP. ?]
 choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (dvp_relation > 40)
 on-arrival: dvp_coalition = 1; coalition_size += dvp_r
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 We have invited the DVP to our coalition.
-
-- @coalition_menu
-- @finished_coalition
 
 @remove_dvp
 title: Remove the DVP from our coalition.
 view-if: dvp_coalition = 1
 on-arrival: dvp_coalition = 0; coalition_size -= dvp_r
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @invite_bvp
 title: Invite the BVP to our coalition.
@@ -893,20 +863,17 @@ unavailable-subtitle: [? if kpd_coalition = 1: The BVP would never join a coalit
 view-if: bvp_coalition = 0
 choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (z_relation > 40)
 on-arrival: bvp_coalition = 1; coalition_size += 3
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
-- @coalition_menu
-- @finished_coalition
+invite bvp.
 
 @remove_bvp
 title: Remove the BVP from our coalition.
 view-if: bvp_coalition = 1
 on-arrival: bvp_coalition = 0; coalition_size -= 3
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @invite_others
 title: Invite the minor parties to our coalition as a last resort.
@@ -929,33 +896,25 @@ subtitle: -2 resources
 unavailable-subtitle: Not enough resources (need 2).
 choose-if: resources >= 2
 on-arrival: resources -= 2; others_coalition = 1; coalition_size += other_r; left_dissent += 4;
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 We transfer some of our campaign funds to our putative coalition partners. Some would call this corruption, but perhaps it is necessary to save our democracy. Leftists in our party are somewhat skeptical of this arrangement. 
-
-- @coalition_menu
-- @finished_coalition
 
 @promise_unity
 title: Promise to form a "National Unity Government" under Joseph Wirth.
 view-if: z_party_leader == "Joos" and z_relation >= 10
 on-arrival: chancellor_promise = "Wirth"; others_coalition = 1; coalition_size += other_r;  z_relation += 5; dvp_relation += 4
-go-to: coalition_menu if coalition_size < 50
+go-to: coalition_menu
 
 The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
-
-- @coalition_menu
-- @finished_coalition
 
 @remove_others
 title: Remove the minor parties from our coalition.
 view-if: others_coalition = 1
 on-arrival: others_coalition = 0; coalition_size -= other_r
+go-to: coalition_menu
 
 we removed em
-
-- @coalition_menu
-- @finished_coalition
 
 @finished_coalition
 title: Finalize our coalition agreements.
