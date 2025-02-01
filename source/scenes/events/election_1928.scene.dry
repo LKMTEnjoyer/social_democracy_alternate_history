@@ -616,9 +616,11 @@ go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 @coalition_menu
 title: Invite parties to our coalition.
 
-We can try to invite other parties to our coalition.
+[? if coalition_size = spd_r : We can try to invite other parties to our coalition. ?]
 
-[? if coalition_size > spd_r : Current coalition: [? if kpd_coalition : KPD + ?] [? if sapd_coalition = 1 : SAPD + ?] SPD [? if ddp_coalition : + DDP ?] [? if z_coalition : + Z ?] [? if dvp_coalition : + DVP ?] [? if bvp_coalition : + BVP ?] [? if others_coalition : + Others ?] [? if sapd_coalition = 2 : + SAPD toleration ?] [+ coalition_size +] ?]
+[? if coalition_size > spd_r : Current coalition: [? if kpd_coalition : KPD + ?] [? if sapd_coalition = 1 : SAPD + ?] SPD [? if ddp_coalition : + DDP ?] [? if z_coalition : + Z ?] [? if dvp_coalition : + DVP ?] [? if bvp_coalition : + BVP ?] [? if others_coalition : + Others ?] [? if sapd_coalition = 2 : + SAPD toleration ?] ([+ coalition_size +]%) ?]
+
+[? if coalition_size > spd_r : <hr id="read-marker"> ?]
 
 - @invite_kpd
 - @invite_sapd
@@ -769,7 +771,7 @@ We have invited the DDP to our coalition.
 
 @invite_dvp
 title: Invite the DVP to our coalition.
-unavailable-subtitle: [? if kpd_coalition = 1: The DDP would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The DVP would never join a coalition with the SAPD. ?] We do not have adequate relations with the DDP.
+unavailable-subtitle: [? if kpd_coalition = 1: The DDP would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The DVP would never join a coalition with the SAPD. ?] We do not have adequate relations with the DVP.
 choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (dvp_relation > 40)
 on-arrival: dvp_coalition = 1; coalition_size += dvp_r
 
@@ -779,7 +781,7 @@ We have invited the DVP to our coalition.
 - @finished_coalition
 
 @invite_bvp
-title: Invite the DVP to our coalition.
+title: Invite the BVP to our coalition.
 unavailable-subtitle: [? if kpd_coalition = 1: The BVP would never join a coalition with the KPD. ?] [? if sapd_coalition = 1 and kpd_coalition = 0: The BVP would never join a coalition with the SAPD. ?] We do not have adequate relations with the BVP.
 choose-if: kpd_coalition = 0 and sapd_coalition = 0 and (z_relation > 50)
 on-arrival: bvp_coalition = 1; coalition_size += 3
