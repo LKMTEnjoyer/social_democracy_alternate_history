@@ -774,7 +774,7 @@ unavailable-subtitle: [? if kpd_coalition = 1: Zentrum is not friendly enough fo
 view-if: z_coalition = 0
 choose-if: kpd_coalition = 0 and (z_relation >= 25 or (z_relation >= 30 and z_party_leader = "Kaas") or (z_relation >= 20 and z_party_leader = "Joos"))
 on-arrival: z_coalition = 1 if kpd_coalition = 0; coalition_size += z_r if kpd_coalition = 0; coalition_size -= 3 if kpd_coalition = 0
-go-to: z_popular_front_invite if kpd_coalition == 1; coalition_menu if and kpd_coalition = 0
+go-to: z_popular_front_invite if kpd_coalition == 1; coalition_menu if kpd_coalition = 0
 
 We invite Zentrum into our coalition. [? if kpd_coalition = 1: However, the right wing of Zentrum is demanding concessions. ?]
 
