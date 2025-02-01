@@ -938,9 +938,9 @@ if (Q.kpd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0) {
 } else if (Q.kpd_coalition == 1 && Q.z_coalition == 1) {
     // if KPD and in coalition with Zentrum it's a popular front
     Q.coalition_type = "popular front";
-} else if ((Q.kpd_coalition == 1 && Q.ddp_coalition == 1) || (Q.sapd_coalition = 1 && Q.z_coalition = 0 && Q.ddp_coalition = 0)) {
+} else if ((Q.kpd_coalition == 1 && Q.ddp_coalition == 1) || (Q.sapd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0)) {
     // if KPD and in coalition with DDP it's a progressive coalition
-    // or if in coalition with SAPD and not Z
+    // or if in coalition with SAPD/SPD
     Q.coalition_type = "progressive coalition";
 } else if (Q.ddp_coalition == 1 && Q.z_coalition == 0 && Q.conservative_party == 0) {
     // DDP + SPD + (SAPD possibly) is social liberal
