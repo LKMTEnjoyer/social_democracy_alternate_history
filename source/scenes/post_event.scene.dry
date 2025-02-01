@@ -322,7 +322,8 @@ if (Q.month_actions >= 1) {
     Q.economic_records.push({'date': new Date(Q.year, Q.month - 1),
                              'inflation': Q.inflation,
                              'unemployment': Q.unemployed,
-                             'budget': Q.budget});
+                             'budget': Q.budget,
+                             'growth': Q.economic_growth});
     Q.public_records.push({'date': new Date(Q.year, Q.month - 1),
                              'republic': Q.pro_republic,
                              'nationalism': Q.nationalism,
