@@ -942,7 +942,7 @@ if (Q.kpd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0) {
     // if KPD and in coalition with DDP it's a progressive coalition
     // z_coalition = 0 is implied
     Q.coalition_type = "progressive coalition";
-} else if (Q.ddp_coalition == 1 && Q.z_coalition == 0 && Q.conservative_party = 0) {
+} else if (Q.ddp_coalition == 1 && Q.z_coalition == 0 && Q.conservative_party == 0) {
     // DDP + SPD + (SAPD possibly) is social liberal
     Q.coalition_type = "social-liberal coalition";
 } else if (Q.z_coalition == 1 && Q.conservative_party == 0) {
