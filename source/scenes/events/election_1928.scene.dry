@@ -623,47 +623,8 @@ go-to: spd_majority if spd_r >= 50; coalition_menu if spd_r < 50
 @coalition_menu
 title: Invite parties to our coalition.
 on-arrival:{!
-
-if (Q.others_coalition == 0 && Q.bvp_coalition == 0 && Q.dvp_coalition == 0) {
-    Q.conservative_party = 0;
-} else {
-    Q.conservative_party = 1;
-}
-if (Q.kpd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0) {
-    // if KPD and not in a coalition with the bourgeoisie parties it's a left front
-    Q.coalition_type = "left front";
-} else if (Q.kpd_coalition == 1 && Q.z_coalition == 1) {
-    // if KPD and in coalition with Zentrum it's a popular front
-    Q.coalition_type = "popular front";
-} else if (Q.kpd_coalition == 1 && Q.ddp_coalition == 1) {
-    // if KPD and in coalition with DDP it's a progressive coalition
-    // z_coalition = 0 is implied
-    Q.coalition_type = "progressive coalition";
-} else if (Q.ddp_coalition == 1 && Q.z_coalition == 0 && Q.conservative_party == 0) {
-    // DDP + SPD + (SAPD possibly) is social liberal
-    Q.coalition_type = "social-liberal coalition";
-} else if (Q.z_coalition == 1 && Q.conservative_party == 0) {
-    // Any coalition with Z and not KPD and not any of the conservative parties is a Weimar
-    // this means I don't have to think of a name for SPD-Z :trolle:
-    Q.coalition_type = "Weimar coalition";
-} else if (Q.bvp_coalition == 1 || Q.dvp_coalition == 1) {
-    // any coalition with the conservative parties except the minor ones is a grand coalition
-    Q.coalition_type = "grand coalition";
-} else if (Q.others_coalition == 1) {
-    // if you coalition with the minor parties it's a new grand coalition
-    Q.coalition_type = "new grand coalition";
-} 
-// note that KPD/SAPD can never be in a coalition with anything right of Zentrum, and vice versa
-// religious parties: Z, BVP
-// will VONC if you do religious schools
-// conservative parties: BVP, DVP, Others
-// will get mad at any kind of socialism
-// socialist parties: KPD, SAPD
-// will get mad at austerity and anti-worker policies
-// bourgeoisie parties: DDP, Z, BVP, DVP, Others
-// will get mad at some kinds of socialism (nationalization)
-// non-progressive parties Z, BVP, DVP, Others
-// will get mad at social reforms
+calculate_coalition()
+Q.coalition_type = Q.coalition_type.charAt(0).toUpperCase() + Q.coalition_type.slice(1);
 !}
 
 [? if coalition_size == spd_r : We can try to invite other parties to our coalition. ?]
@@ -927,35 +888,7 @@ title: Finalize our coalition agreements.
 unavailable-subtitle: We do not have a majority in the Reichstag.
 view-if: coalition_size >= 50
 on-arrival:{!
-if (Q.others_coalition == 0 && Q.bvp_coalition == 0 && Q.dvp_coalition == 0) {
-    Q.conservative_party = 0;
-} else {
-    Q.conservative_party = 1;
-}
-if (Q.kpd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0) {
-    // if KPD and not in a coalition with the bourgeoisie parties it's a left front
-    Q.coalition_type = "left front";
-} else if (Q.kpd_coalition == 1 && Q.z_coalition == 1) {
-    // if KPD and in coalition with Zentrum it's a popular front
-    Q.coalition_type = "popular front";
-} else if ((Q.kpd_coalition == 1 && Q.ddp_coalition == 1) || (Q.sapd_coalition == 1 && Q.z_coalition == 0 && Q.ddp_coalition == 0)) {
-    // if KPD and in coalition with DDP it's a progressive coalition
-    // or if in coalition with SAPD/SPD
-    Q.coalition_type = "progressive coalition";
-} else if (Q.ddp_coalition == 1 && Q.z_coalition == 0 && Q.conservative_party == 0) {
-    // DDP + SPD + (SAPD possibly) is social liberal
-    Q.coalition_type = "social-liberal coalition";
-} else if (Q.z_coalition == 1 && Q.conservative_party == 0) {
-    // Any coalition with Z and not KPD and not any of the conservative parties is a Weimar
-    // this means I don't have to think of a name for SPD-Z :trolle:
-    Q.coalition_type = "Weimar coalition";
-} else if (Q.bvp_coalition == 1 || Q.dvp_coalition == 1) {
-    // any coalition with the conservative parties except the minor ones is a grand coalition
-    Q.coalition_type = "grand coalition";
-} else if (Q.others_coalition == 1) {
-    // if you coalition with the minor parties it's a new grand coalition
-    Q.coalition_type = "new grand coalition";
-} 
+calculate_coalition()
 !}
 
 we have a majority etc etc I'm getting tired
