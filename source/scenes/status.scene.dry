@@ -13,7 +13,7 @@ if (Q.economic_growth) {
     Q.economic_growth_2 = Q.economic_growth.toFixed(1);
 }
 calculate_coalition()
-if (Q.in_emergency_government == 1 or Q.in_minority_government == 1 or Q.spd_majority == 1) {
+if (Q.in_emergency_government == 1 || Q.in_minority_government == 1 || Q.spd_majority == 1) {
     Q.special_government = 1;
 } else {
     Q.special_government = 0;
