@@ -705,7 +705,7 @@ go-to: coalition_menu
 
 Surprisingly, the KPD accepts our proposal without appointing Thälmann as chancellor. 
 
-[? if sapd_coalition = 1: Since the SAPD advocates for a popular front, it has joined our coalition instead of tolerating our government. ?]
+[? if sapd_coalition = 1: Since the SAPD advocates for a popular front, it has joined our coalition instead of toleration. ?]
 
 @remove_kpd
 title: Remove the KPD from our coalition.
@@ -730,7 +730,7 @@ We have invited the SAPD to the coalition or to toleration
 
 @remove_sapd
 title: Remove the SAPD from our coalition.
-view-if: sapd_coalition = 1
+view-if: sapd_coalition > 0
 on-arrival: sapd_coalition = 0; coalition_size -= sapd_r 
 go-to: coalition_menu
 
@@ -747,7 +747,7 @@ go-to: z_popular_front_invite if kpd_coalition == 1; coalition_menu if kpd_coali
 
 We invite Zentrum into our coalition. [? if kpd_coalition = 1: However, the right wing of Zentrum is demanding concessions. ?]
 
-[? if sapd_flag = 1 : Since the SAPD advocates for a popular front, our creation of a Weimar coalition has led them to [? if sapd_coalition = 2: switch to toleration?] [? if sapd_coalition = 0: leave the coalition entirely?]. ?]
+[? if sapd_flag = 1 : Since the SAPD advocates for a popular front, our creation of a Weimar coalition has led them to [? if sapd_coalition = 2: switch to toleration?][? if sapd_coalition = 0: leave the coalition entirely?]. ?]
 
 @z_popular_front_invite
 
@@ -787,10 +787,12 @@ Surprisingly, Zentrum accepts our proposal of a popular front.
 @remove_zentrum
 title: Remove Zentrum from our coalition.
 view-if: z_coalition = 1
-on-arrival: z_coalition = 0; coalition_size -= (z_r - 3)
+on-arrival: z_coalition = 0; coalition_size -= (z_r - 3); sapd_coalition = 1 if sapd_coalition = 2
 go-to: coalition_menu
 
 we removed em
+
+[? if sapd_coalition = 1: Since we have removed Zentrum from our government, the SAPD is now joining our coalition instead of tolerating. ?]
 
 @invite_ddp
 title: Invite the [+ ddp_name +] to our coalition.
