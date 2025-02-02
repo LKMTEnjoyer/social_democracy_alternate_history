@@ -719,7 +719,7 @@ subtitle: [? if kpd_coalition = 1 and z_coalition = 1: The SAPD will enter into 
 view-if: sapd_formed = 1 and sapd_coalition = 0
 unavailable-subtitle: [? if kpd_coalition = 0 and kpd_relation < 30 : The SAPD advocates for a popular front, so it will not tolerate our coalition. ?] 
 choose-if: (kpd_coalition = 0 and kpd_relation >= 30) or kpd_coalition = 1
-on-arrival: sapd_coalition = 1 if kpd_coalition = 1; sapd_coalition = 2 if kpd_coalition = 0; coalition_size += sapd_r; 
+on-arrival: sapd_coalition = 1; sapd_coalition = 2 if z_coalition = 1; coalition_size += sapd_r; 
 go-to: coalition_menu
 
 We have invited the SAPD to the coalition or to toleration
