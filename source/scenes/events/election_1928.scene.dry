@@ -652,8 +652,8 @@ Q.coalition_type = Q.coalition_type.charAt(0).toUpperCase() + Q.coalition_type.s
 
 @invite_kpd
 title: Can we invite the KPD into our coalition?
-unavailable-subtitle: [? if kpd_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?][? if z_coalition = 1 or ddp_coalition = 1: The KPD is not friendly enough for a "Popular Front". ?]
-view-if: kpd_relation >= 40 and kpd_coalition = 0
+unavailable-subtitle: [? if kpd_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?] [? if z_coalition = 1 or ddp_coalition = 1: The KPD is not friendly enough for a "Popular Front". ?] [? if conservative_party = 1 : The KPD would never join a coalition with any conservative party. ?]
+view-if: kpd_relation >= 40 and kpd_coalition = 0 and conservative_party = 0
 choose-if: ((z_coalition = 0 and ddp_coalition = 0) and (kpd_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40))) or (z_coalition = 1 and ((kpd_relation >= 65 and kpd_party_leader == "Thälmann") or (kpd_relation >= 45 and kpd_party_leader == "Conciliators") or (z_party_leader == "Joos" and kpd_party_leader == "Conciliators" and kpd_relation >= 30))) and communist_coalition >= 3
 
 The KPD has never participated in a national government before, and even some members of our own party are skeptical of such an arrangement. The most likely arrangement is the KPD tolerating a SPD coalition without taking any ministry positions.
@@ -700,31 +700,33 @@ choose-if: kpd_relation >= 60 or kpd_party_leader == "Conciliators"
 go-to: kpd_coalition_success
 
 @kpd_coalition_success
-on-arrival: kpd_coalition = 1; kpd_relation += 10; coalition_size += kpd_r
+on-arrival: kpd_coalition = 1; kpd_relation += 10; coalition_size += kpd_r; sapd_coalition = 1 if sapd_coalition = 2
 go-to: coalition_menu
 
 Surprisingly, the KPD accepts our proposal without appointing Thälmann as chancellor. 
 
+[? if sapd_coalition = 1: Since the SAPD advocates for a popular front, it has joined our coalition instead of tolerating our government. ?]
+
 @remove_kpd
 title: Remove the KPD from our coalition.
 view-if: kpd_coalition = 1
-on-arrival: kpd_coalition = 0; coalition_size -= kpd_r 
+on-arrival: kpd_coalition = 0; coalition_size -= kpd_r; kpd_relation -= 10; sapd_coalition = 2 if z_coalition = 1 and sapd_coalition = 1;
 go-to: coalition_menu
 
-we removed em
+yeah no
+
+[? if sapd_coalition = 2 : As we have removed the KPD from our coalition agreements, the SAPD has switched to tolerating our government. ?]
 
 @invite_sapd
 title: Invite the SAPD into our coalition.
 subtitle: [? if kpd_coalition = 1 and z_coalition = 1: The SAPD will enter into the popular front. ?]  [? if kpd_coalition = 1 and z_coalition = 0: The SAPD will enter into the coalition. ?] [? if kpd_coalition = 0 and z_coalition = 1: The SAPD will enter a toleration agreement with the coalition. ?]
 view-if: sapd_formed = 1 and sapd_coalition = 0
-unavailable-subtitle: [? if kpd_coalition = 0 and kpd_relation < 30 : The SAPD advocates for a popular front, so it will not tolerate our coalition. ?] 
-choose-if: (kpd_coalition = 0 and kpd_relation >= 30) or kpd_coalition = 1
+unavailable-subtitle: [? if kpd_coalition = 0 and kpd_relation < 30 : The SAPD advocates for a popular front, so it will not tolerate our coalition. ?] [? if conservative_party = 1 : The KPD would never join a coalition with any conservative party. ?]
+choose-if: (kpd_coalition = 0 and kpd_relation >= 30) or kpd_coalition = 1 and conservative_party = 0
 on-arrival: sapd_coalition = 1; sapd_coalition = 2 if z_coalition = 1; coalition_size += sapd_r; 
 go-to: coalition_menu
 
 We have invited the SAPD to the coalition or to toleration
-
-todo make sapd switch to toleration if we enter in a weimar after sapd is chosen
 
 @remove_sapd
 title: Remove the SAPD from our coalition.
@@ -740,10 +742,12 @@ subtitle: We have often been in coalitions together.
 unavailable-subtitle: [? if kpd_coalition = 1: Zentrum is not friendly enough for a popular front. ?] [? if (z_relation < 25 and z_partner = "Marx") or (z_relation < 30 and z_party_leader = "Kaas") or (z_relation < 20 and z_party_leader = "Joos"): We do not have adequate relations with Zentrum. ?]
 view-if: z_coalition = 0
 choose-if: kpd_coalition = 0 and (z_relation >= 25 or (z_relation >= 30 and z_party_leader = "Kaas") or (z_relation >= 20 and z_party_leader = "Joos"))
-on-arrival: z_coalition = 1 if kpd_coalition = 0; coalition_size += z_r if kpd_coalition = 0; coalition_size -= 3 if kpd_coalition = 0
+on-arrival: sapd_flag = 1 if sapd_coalition = 1 and kpd_coalition = 0; z_coalition = 1 if kpd_coalition = 0; coalition_size += z_r if kpd_coalition = 0; coalition_size -= 3 if kpd_coalition = 0; sapd_coalition = 1 if kpd_relation >= 30; sapd_coalition = 0 if kpd_relation < 30
 go-to: z_popular_front_invite if kpd_coalition == 1; coalition_menu if kpd_coalition = 0
 
 We invite Zentrum into our coalition. [? if kpd_coalition = 1: However, the right wing of Zentrum is demanding concessions. ?]
+
+[? if sapd_flag = 1 : Since the SAPD advocates for a popular front, our creation of a Weimar coalition has led them to [? if sapd_coalition = 2: switch to toleration?] [? if sapd_coalition = 0: leave the coalition entirely?]. ?]
 
 @z_popular_front_invite
 
